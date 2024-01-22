@@ -1,13 +1,12 @@
 body
 {
     margin: 0;
-    font-family: var(--bs-font-sans-serif);
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: white;
     background-color: #373737;
-    height: 1000px;
     /* -webkit-text-size-adjust: 100%; */
     /* -webkit-tap-highlight-color: transparent; */
 }
@@ -39,7 +38,7 @@ body
 {
     display: flex;
     align-items: center;
-    margin-left: 5px;
+    margin-left: 10px;
     cursor: pointer;
 }
 .left-icon .logo
@@ -71,6 +70,10 @@ body
     align-items: center;
     justify-content: space-between;
 }
+.right-icon
+{
+    margin-right: 10px;
+}
 .right-icon ul li
 {
     height: 24px;
@@ -85,15 +88,113 @@ body
     margin-top: 200px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .pic
 {
     margin-right: 10px;
+    margin-left: 10px;
+
 }
 .pic img
 {
-    max-width: 40%;
-    height: auto;
+    max-width: 90%;
+    height: auto;    
+    display: inline-block;
+}
+.content
+{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+section h1
+{
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 60px;
+}
+section span
+{
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 16px;
+    padding-bottom: 30px;
+}
+.number
+{
+    list-style: none;
+    /* list-style: none; */
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+}
+.number li
+{
+    margin-right: 50px;
+}
+.number li strong
+{
+    color: #f26464;
+    font-size: 36px;
+    font-weight: 800;
+}
+.number li span
+{
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: none;
+}
+.about-section
+{
+    margin-top: 60px;
+    margin-bottom: 120px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.about-section .heading
+{
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-bottom: 3px solid #f26464;
+    padding-bottom: 7px;
+    margin-bottom: 23px;
+}
+.text p
+{
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
+.about-section .button
+{
+    /* display: inline-block; */
+    text-align: center;
+}
+.button a
+{
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #f26464;
+    font-size: 12px;
+    line-height: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #F26464;
+    padding: 17px 30px;
+    border: 2px solid #F26464;
+    border-radius: 60px;
+}
+.button :hover
+{
+    background-color: #F26464;
+    color: #FFF;
 }
