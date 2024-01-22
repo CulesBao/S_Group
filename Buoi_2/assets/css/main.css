@@ -1,0 +1,17 @@
+.container
+{
+    background-color: blue;
+    height: 500px;
+    width: 500px;
+    display: inline-block;
+}
+.box1{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+.box2{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+}
