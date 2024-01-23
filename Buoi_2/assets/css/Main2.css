@@ -18,6 +18,7 @@ body
     background-color: #154284;
     padding: 50px 0;
     transition-duration: .7s;
+    z-index: 4;
 }
 .header.fixed-header
 {
@@ -25,20 +26,21 @@ body
 }
 .container
 {
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    padding: 0 100px;
 }
 .nav
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 40px;
 }
 .left-icon
 {
     display: flex;
     align-items: center;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     cursor: pointer;
 }
 .left-icon .logo
@@ -72,7 +74,7 @@ body
 }
 .right-icon
 {
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 .right-icon ul li
 {
@@ -83,17 +85,23 @@ body
     margin-right: 8px;
     cursor: pointer;
 }
+.all
+{
+    margin: auto;
+    padding: 0 100px;
+}
 .banner .container
 {
     margin-top: 200px;
     display: flex;
     align-items: center;
+    padding: 0 40px 0;
 }
 
 .pic
 {
     margin-right: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 
 }
 .pic img
@@ -150,8 +158,8 @@ section span
 {
     margin-top: 60px;
     margin-bottom: 120px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 .about-section .heading
 {
@@ -165,7 +173,7 @@ section span
     padding-bottom: 7px;
     margin-bottom: 23px;
 }
-.text p
+.text
 {
     font-size: 24px;
     line-height: 40px;
@@ -197,4 +205,216 @@ section span
 {
     background-color: #F26464;
     color: #FFF;
+}
+.skill-section
+{
+    padding: 0 10px 105px;
+    display: flex;
+    justify-content: space-between;
+}
+.skill-section .core,
+.skill-section .other {
+    width: calc(50% - 15px); /* Chia đôi trang và trừ đi khoảng cách giữa chúng */
+}
+.skill-section .heading
+{
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-bottom: 3px solid #f26464;
+    padding-bottom: 7px;
+    margin-bottom: 23px;
+    margin-left: 40px;
+}
+
+.skill-section .button
+{
+    list-style: none;
+    display: inline-block;
+    /* color: #373737; */
+    font-size: 16px;
+    padding: 10px 20px;
+    /* background-color: #FFF; */
+    border: 1px solid #D7D7D7;
+    border-radius: 27px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+.work-section
+{
+    padding: 0 40px 120px;
+}
+.work-section .container
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 0 ;
+}
+.work-section .heading
+{
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-bottom: 3px solid #f26464;
+    padding-bottom: 7px;
+    margin-bottom: 23px;
+    /* margin-left: 40px; */
+}
+.container .left
+{
+    padding-right: 70px;
+}
+.container .right
+{
+    padding: 0 70px 0 0;
+}
+.container .year
+{
+    /* color: #373737; */
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    letter-spacing: 0px;
+    text-transform: none;
+}
+.container .officename
+{
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.container .department
+{
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: none;
+    padding-bottom: 30px;
+}
+.container p
+{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    /* margin-bottom: 1rem; */
+}
+.work-section .container ul li
+{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.latest
+{
+    padding: 0 40px;
+}
+.latest .heading
+{
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-bottom: 3px solid #f26464;
+    padding-bottom: 7px;
+    margin-bottom: 23px;
+    /* margin-left: 40px; */
+}
+
+.latest .work-list
+{
+    /* display: flex; */
+    /* align-items: center; */
+    padding-left: 70px;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    background-color:#000000;
+    margin-bottom: 40px;
+    border-radius: 40px;
+}
+.work-list .row 
+{
+    display: flex;
+    justify-content: space-around;
+}
+.work-list .title
+{
+    /* color: #000; */
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.work-list .left
+{
+    width: calc(130% - 50px); 
+    /* padding-right: 30px; */
+}
+
+.work-list p
+{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+}
+.work-list img
+{
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+.work-list .button a
+{
+    margin: 20px 0 0;
+}
+.footer
+{
+    margin-top: 120px;
+    padding: 120px 0;
+    background-color: #000000;
+    text-align: center;
+}
+.footer section
+{
+    padding-bottom: 100px;
+}
+.footer section span
+{
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 3px;
+    display: block;
+    padding-bottom: 20px;
+}
+.footer section h4
+{
+    color: #FFF;
+    font-size: 48px;
+    font-weight: 700;
+}
+.footer section p
+{
+    letter-spacing: 1.13px;
+    color: #FFF;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.footer span
+{
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    font-size: 16px;
 }
