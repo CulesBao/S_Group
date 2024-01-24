@@ -1,0 +1,58 @@
+body
+{
+    width: 100%;
+    margin: 0;
+}
+.header
+{
+    width: 100%;
+    background-color: bisque;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h3  
+{
+    text-align: center;
+    font-size: 10px;
+}
+.content
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.photo
+{
+    height: 50px;
+    width: 50px;
+    background-color: bisque;
+    margin: 10px;
+    /* display: flex;    */
+}
+.add-content
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.box
+{
+    display: flex;
+    height: 70px;
+    width: 70px;
+    background-color: bisque;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.footer
+{
+    display: flex;
+    width: 100%;
+    background-color: bisque;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
