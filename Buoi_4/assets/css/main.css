@@ -1,0 +1,58 @@
+.body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container
+{
+    margin-top: 200px;
+    margin-left: 200px;
+    position: relative;
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+}
+
+h3
+{
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    transition-duration: 0.7s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+
+}
+p
+{
+    color: #fff;
+    position: absolute;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    transition-duration: 0.7s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+.container:hover h3
+{
+    position: absolute;
+    top: 40%;
+    opacity: 1;
+    
+}
+.container:hover p
+{
+    position: absolute;
+    opacity: 1;
+    transform: translate(-50%, -300%);
+}
