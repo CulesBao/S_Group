@@ -8,21 +8,45 @@ body {
   color: #212529;
   background-color: #fff;
   text-align: left;
+  overflow: hidden;
 }
 
 .main {
   height: 1000px;
   width: 100%;
+  background-color: #fff;
 }
-.main__nav {
-  display: flex;
-  position: absolute;
-  background-color: #4f2fd8;
-  width: 500px;
+.main .__nav {
   height: 84px;
+  max-width: 100%;
+  padding: 0px 16px;
+  background-color: #4f2fd8;
 }
-.main__nav__container-relative {
-  margin: 0px 100px;
+.main .__nav .-container--relative {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .__nav .-container--relative .-inner ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+.main .__nav .-container--relative .-inner ul li {
+  cursor: pointer;
+  padding: 30px 20px;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+.main .__nav .-container--relative .-inner ul li a {
+  text-decoration: none;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,6 @@
 $--primary-bg-color--white: #fff;
 $--primary-bg-color--blue: #4f2fd8;
+// $--primary-bg-color--black: #212529;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body
 {
@@ -11,21 +12,53 @@ body
     color: #212529;
     background-color: $--primary-bg-color--white;
     text-align: left;
+    overflow: hidden;
 }
 .main
 {
     height: 1000px;
     width: 100%;
-    // background-color: $--primary-bg-color--blue;
-    &__nav{
-        display: flex;
-        position: absolute;
-        background-color: $--primary-bg-color--blue;
-        width: 500px;
+    background-color: $--primary-bg-color--white;
+    .__nav
+    {
         height: 84px;
-        // padding: 0px 16px;
-        &__container-relative{
-            margin: 0px 100px;
+        max-width: 100%; 
+        padding: 0px 16px;
+        background-color: $--primary-bg-color--blue;
+        .-container--relative
+        {
+            // height: 100%;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .-inner
+            {
+                ul
+                {
+                    // height: 100%;
+                    display: flex;
+                    list-style: none;
+                    margin: 0;
+                    li
+                    {
+                        cursor: pointer;
+                        padding: 30px 20px;
+                        padding-right: 1.25rem;
+                        padding-left: 1.25rem;
+                        display: flex;
+                        align-items: center;
+                        a
+                        {
+                            text-decoration: none;
+                            color: $--primary-bg-color--white;
+                        }
+                    }
+                }
+            }
         }
     }
 }
