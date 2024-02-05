@@ -18,14 +18,14 @@ body
 {
     height: 1000px;
     width: 100%;
-    background-color: $--primary-bg-color--white;
+    background-color: $--primary-bg-color--blue;
     .__nav
     {
         height: 84px;
         max-width: 100%; 
         padding: 0px 16px;
         background-color: $--primary-bg-color--blue;
-        .-container--relative
+        .-container
         {
             // height: 100%;
             max-width: 100%;
@@ -35,15 +35,18 @@ body
             display: flex;
             align-items: center;
             justify-content: space-between;
+            .-branch
+            {
+                cursor: pointer;
+            }
             .-inner
             {
-                ul
+                .navbar-nav
                 {
-                    // height: 100%;
                     display: flex;
                     list-style: none;
                     margin: 0;
-                    li
+                    .nav-items
                     {
                         cursor: pointer;
                         padding: 30px 20px;
@@ -51,10 +54,68 @@ body
                         padding-left: 1.25rem;
                         display: flex;
                         align-items: center;
-                        a
+                        position: relative;
+                        .nav-link
                         {
                             text-decoration: none;
                             color: $--primary-bg-color--white;
+                        }
+                        .fa-caret-up
+                        {
+                            color: $--primary-bg-color--white;
+                            position: absolute;
+                            top: 100%;
+                            opacity: 0;
+                            visibility: hidden;
+                            transition-duration: 0.3s;
+                            transition-timing-function: ease-in-out;
+                            transition-property: all;
+                        }
+                        .drop-menu
+                        {
+                            opacity: 0;
+                            visibility: hidden;
+                            padding-left: 0;
+                            background-color: $--primary-bg-color--white;
+                            list-style: none;
+                            display: block;
+                            position: absolute;
+                            top: 114%;
+                            left: 0;
+                            font-size: 13px;
+                            color: #2c2e30;
+                            text-transform: uppercase;
+                            font-weight: 700;  
+                            border-radius: 2px;
+                            transition-duration: 0.3s;
+                            transition-timing-function: ease-in-out;
+                            transition-property: all;
+                            li
+                            {
+                                width: 210px;
+                                padding: 10px;
+                                height: 39.5px;
+                                box-sizing: border-box;
+                            }
+                        }
+                    }
+                    .dropdown:hover
+                    {
+                        .fa-caret-up
+                        {
+                            opacity: 1;
+                            visibility: visible;
+                            top: 70%;
+                        }
+                        .drop-menu
+                        {
+                            top: 84%;
+                            opacity: 1;
+                            visibility: visible;
+                            li:hover
+                            {
+                                background-color: #e9ecee;
+                            }
                         }
                     }
                 }
@@ -62,3 +123,9 @@ body
         }
     }
 }
+@media screen and (min-width: 1200px){
+    .-container
+    {
+        max-width: 1140px;
+    }
+  }

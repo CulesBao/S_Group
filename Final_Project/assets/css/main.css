@@ -14,7 +14,7 @@ body {
 .main {
   height: 1000px;
   width: 100%;
-  background-color: #fff;
+  background-color: #4f2fd8;
 }
 .main .__nav {
   height: 84px;
@@ -22,7 +22,7 @@ body {
   padding: 0px 16px;
   background-color: #4f2fd8;
 }
-.main .__nav .-container--relative {
+.main .__nav .-container {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -31,22 +31,80 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.main .__nav .-container--relative .-inner ul {
+.main .__nav .-container .-branch {
+  cursor: pointer;
+}
+.main .__nav .-container .-inner .navbar-nav {
   display: flex;
   list-style: none;
   margin: 0;
 }
-.main .__nav .-container--relative .-inner ul li {
+.main .__nav .-container .-inner .navbar-nav .nav-items {
   cursor: pointer;
   padding: 30px 20px;
   padding-right: 1.25rem;
   padding-left: 1.25rem;
   display: flex;
   align-items: center;
+  position: relative;
 }
-.main .__nav .-container--relative .-inner ul li a {
+.main .__nav .-container .-inner .navbar-nav .nav-items .nav-link {
   text-decoration: none;
   color: #fff;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .fa-caret-up {
+  color: #fff;
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-property: all;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu {
+  opacity: 0;
+  visibility: hidden;
+  padding-left: 0;
+  background-color: #fff;
+  list-style: none;
+  display: block;
+  position: absolute;
+  top: 114%;
+  left: 0;
+  font-size: 13px;
+  color: #2c2e30;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 2px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-property: all;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li {
+  width: 210px;
+  padding: 10px;
+  height: 39.5px;
+  box-sizing: border-box;
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown:hover .fa-caret-up {
+  opacity: 1;
+  visibility: visible;
+  top: 70%;
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown:hover .drop-menu {
+  top: 84%;
+  opacity: 1;
+  visibility: visible;
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown:hover .drop-menu li:hover {
+  background-color: #e9ecee;
+}
+
+@media screen and (min-width: 1200px) {
+  .-container {
+    max-width: 1140px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
