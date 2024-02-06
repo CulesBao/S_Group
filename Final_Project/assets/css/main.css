@@ -59,7 +59,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in;
   transition-property: all;
 }
 .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu {
@@ -78,14 +78,71 @@ body {
   font-weight: 700;
   border-radius: 2px;
   transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in;
   transition-property: all;
 }
-.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li {
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu {
   width: 210px;
   padding: 10px;
   height: 39.5px;
   box-sizing: border-box;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .open-sub-menu, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .open-sub-menu {
+  text-decoration: none;
+  color: #212529;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .open-sub-menu .new-icon, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .open-sub-menu .new-icon {
+  font-size: 10px;
+  box-sizing: border-box;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+  color: #212529;
+  background-color: #ffc107;
+  margin-left: 0.5rem !important;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .open-sub-menu .fa-caret-down, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .open-sub-menu .fa-caret-down {
+  position: absolute;
+  left: 90%;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-property: all;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .drop-menu-child, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .drop-menu-child {
+  opacity: 0;
+  visibility: hidden;
+  padding-left: 0;
+  background-color: #fff;
+  list-style: none;
+  display: block;
+  position: absolute;
+  left: 100%;
+  font-size: 13px;
+  color: #2c2e30;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 2px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-property: all;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .drop-menu-child li, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .drop-menu-child li {
+  width: 230px;
+  padding: 10px;
+  height: 39.5px;
+  box-sizing: border-box;
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .add-1, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .add-1 {
+  top: calc(10% + 39.5px);
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .add-2, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .add-2 {
+  top: calc(10% + 79px);
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .add-3, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .add-3 {
+  top: calc(10% + 118.5px);
+}
+.main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu li .add-4, .main .__nav .-container .-inner .navbar-nav .nav-items .drop-menu .sub-menu .add-4 {
+  top: calc(10% + 158px);
 }
 .main .__nav .-container .-inner .navbar-nav .dropdown:hover .fa-caret-up {
   opacity: 1;
@@ -99,6 +156,26 @@ body {
 }
 .main .__nav .-container .-inner .navbar-nav .dropdown:hover .drop-menu li:hover {
   background-color: #e9ecee;
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown .drop-menu .sub-menu:hover .fa-caret-down {
+  rotate: -90deg;
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown .drop-menu .sub-menu:hover .drop-menu-child {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown .drop-menu .sub-menu:hover .add-1 {
+  top: calc(0% + 39.5px);
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown .drop-menu .sub-menu:hover .add-2 {
+  top: calc(0% + 79px);
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown .drop-menu .sub-menu:hover .add-3 {
+  top: calc(0% + 118.5px);
+}
+.main .__nav .-container .-inner .navbar-nav .dropdown .drop-menu .sub-menu:hover .add-4 {
+  top: calc(0% + 158px);
 }
 
 @media screen and (min-width: 1200px) {

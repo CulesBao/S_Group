@@ -58,7 +58,7 @@ body
                         .nav-link
                         {
                             text-decoration: none;
-                            color: $--primary-bg-color--white;
+                            color: $--primary-bg-color--white;   
                         }
                         .fa-caret-up
                         {
@@ -68,7 +68,7 @@ body
                             opacity: 0;
                             visibility: hidden;
                             transition-duration: 0.3s;
-                            transition-timing-function: ease-in-out;
+                            transition-timing-function: ease-in;
                             transition-property: all;
                         }
                         .drop-menu
@@ -88,14 +88,80 @@ body
                             font-weight: 700;  
                             border-radius: 2px;
                             transition-duration: 0.3s;
-                            transition-timing-function: ease-in-out;
+                            transition-timing-function: ease-in;
                             transition-property: all;
-                            li
+                            li, .sub-menu
                             {
                                 width: 210px;
                                 padding: 10px;
                                 height: 39.5px;
                                 box-sizing: border-box;
+                                .open-sub-menu
+                                {
+                                    text-decoration: none;
+                                    color: #212529;
+                                    .new-icon
+                                    {
+                                        font-size: 10px;
+                                        box-sizing: border-box;
+                                        padding-right: 0.6em;
+                                        padding-left: 0.6em;
+                                        border-radius: 10rem;
+                                        color: #212529;
+                                        background-color: #ffc107;
+                                        margin-left: 0.5rem!important;
+                                    }
+                                    .fa-caret-down
+                                    {
+                                        position: absolute;
+                                        left: 90%;
+                                        transition-duration: 0.3s;
+                                        transition-timing-function: ease-in;
+                                        transition-property: all;
+                                    }
+                                }
+                                .drop-menu-child
+                                {
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    padding-left: 0;
+                                    background-color: $--primary-bg-color--white;
+                                    list-style: none;
+                                    display: block;
+                                    position: absolute;
+                                    // top: 10%;
+                                    left: 100%;
+                                    font-size: 13px;
+                                    color: #2c2e30;
+                                    text-transform: uppercase;
+                                    font-weight: 700;  
+                                    border-radius: 2px;
+                                    transition-duration: 0.3s;
+                                    transition-timing-function: ease-in;
+                                    transition-property: all;
+                                    li{
+                                        width: 230px;
+                                        padding: 10px;
+                                        height: 39.5px;
+                                        box-sizing: border-box;
+                                    }
+                                }
+                                .add-1
+                                {
+                                    top: calc(10% + 39.5px);
+                                }
+                                .add-2
+                                {
+                                    top: calc(10% + 39.5px * 2);
+                                }
+                                .add-3
+                                {
+                                    top: calc(10% + 39.5px * 3);
+                                }
+                                .add-4
+                                {
+                                    top: calc(10% + 39.5px * 4);
+                                }
                             }
                         }
                     }
@@ -115,6 +181,41 @@ body
                             li:hover
                             {
                                 background-color: #e9ecee;
+                            }
+                        }
+                    }
+                    .dropdown
+                    {
+                        .drop-menu
+                        {
+                            .sub-menu:hover
+                            {
+                                .fa-caret-down
+                                {
+                                    rotate: -90deg;
+                                }
+                                .drop-menu-child
+                                {
+                                    top: 0;
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                .add-1
+                                {
+                                    top: calc(0% + 39.5px);
+                                }
+                                .add-2
+                                {
+                                    top: calc(0% + 39.5px * 2);
+                                }
+                                .add-3
+                                {
+                                    top: calc(0% + 39.5px * 3);
+                                }
+                                .add-4
+                                {
+                                    top: calc(0% + 39.5px * 4);
+                                }
                             }
                         }
                     }
