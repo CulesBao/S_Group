@@ -1,6 +1,7 @@
 $--primary-bg-color--white: #fff;
 $--primary-bg-color--blue: #4f2fd8;
-// $--primary-bg-color--black: #212529;
+$--primary-bg-color--purple: #7c4fe0;
+$--primary-bg-color--black: #212529;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body
 {
@@ -10,17 +11,20 @@ body
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    background-color: $--primary-bg-color--white;
+    background-color: $--primary-bg-color--black;
     text-align: left;
-    overflow: hidden;
+    // overflow: hidden;
 }
 .main
 {
-    height: 1000px;
+    height: 800px;
     width: 100%;
     background-color: $--primary-bg-color--blue;
     .__nav
     {
+        position: absolute;
+        left: 7%;
+        right: 7%;
         height: 84px;
         max-width: 100%; 
         padding: 0px 16px;
@@ -73,6 +77,7 @@ body
                         }
                         .drop-menu
                         {
+                            z-index: 1;
                             opacity: 0;
                             visibility: hidden;
                             padding-left: 0;
@@ -223,10 +228,82 @@ body
             }
         }
     }
+    .home
+    {
+        height: calc(100% - 84px);
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        .align-items--center
+        {
+            .welcome-intro
+            {
+                position: absolute;
+                max-width: 38%;
+                left: 13%;
+                top: 25%;
+                .text-white
+                {
+                    color: $--primary-bg-color--white;
+                }
+                h1
+                {
+                    font-size: 64px;
+                    font-weight: 600;
+                    line-height: 1.2;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+                p
+                {
+                    font-size: 16px;
+                    margin: 24px 0;
+                }
+                .button-group--store
+                {
+                    margin-top: 30px;
+                    display: flex;
+                    img
+                    {
+                        max-width: 190px;
+                    }
+                    .android
+                    {
+                        margin-right: 10px;
+                    }
+                }
+                .notice
+                {
+                    font-size: 14px;
+                    margin-top: 16px;
+                    margin-bottom: 0;
+                    font-style: italic;
+                }
+            }
+            .app-intro
+            {
+                position: absolute;
+                display: flex;
+                top: 25%;
+                right: 13%;
+                max-width: 38%;
+                right: 0;
+                .phone 
+                {
+                    img
+                    {
+                        height: auto;
+                        max-width: 70%;
+                    }
+                }
+            }
+        }
+    }
 }
-@media screen and (min-width: 1200px){
+@media only screen and (min-width: 1100px){
     .-container
     {
-        max-width: 1140px;
+        max-width: 900px;
     }
   }
