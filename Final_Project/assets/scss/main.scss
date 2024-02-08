@@ -236,6 +236,10 @@ body
         display: flex;
         .align-items--center
         {
+            height: 100%;
+            width: 74%;
+            margin-left: auto;
+            margin-right: auto;
             .welcome-intro
             {
                 position: absolute;
@@ -283,19 +287,19 @@ body
             }
             .app-intro
             {
-                top: 20%;
+                top: 18%;
                 max-width: 38%;
                 right: 13%;
                 position: absolute;
                 display: flex;
-                right: 0;
+                height: 90%;
                 .phone 
                 {
                     img
                     {
-                        height: 50%;
+                        height: 100%;
                         width: auto;
-                        // vertical-align: middle;
+                        vertical-align: middle;
                     }
                 }
             }
@@ -305,13 +309,39 @@ body
     {
         background-color: $--primary-bg-color--white;
         width: 100%;
-        height: 200px;
+        height: 230px;
         box-sizing: border-box;
-        .number
+        .align-items--center
         {
-            font-size: 48px;
-            color: $--primary-bg-color--purple;
-            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            .counter
+            {
+                width: calc(74% / 4);
+                h2
+                {
+                    font-size: 48px;
+                    text-transform: uppercase;
+                    color: $--primary-bg-color--purple;
+                    margin-top: 0;
+                    margin-bottom: 16px;
+                    text-align: center;
+                }
+                h5
+                {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: $--primary-bg-color--black;
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+            .border
+            {
+                border-right: 1px solid #222222;
+            }
         }
     }
 }

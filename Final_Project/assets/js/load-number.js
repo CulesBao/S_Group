@@ -13,7 +13,7 @@ window.onload = function() {
                 // Tạo một phần tử mới là một thẻ <p> để hiển thị số mới
                 var phanTuMoi = document.createElement("p");
                 phanTuMoi.id = 'so';
-                phanTuMoi.classList.add('number');
+                phanTuMoi.classList.add('so-class'); 
                 // Đặt nội dung của phần tử mới là số hiện tại
                 phanTuMoi.textContent = soHienTai;
                 // Thêm phần tử mới vào trong thẻ <body> của trang web
