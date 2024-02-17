@@ -277,6 +277,93 @@ body {
 .main .counter-area .align-items--center .border {
   border-right: 1px solid #222222;
 }
+.main .feature {
+  background-color: #fff;
+  width: 100%;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+.main .feature .heading {
+  height: 330px;
+  width: 74%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .feature .heading .button {
+  box-sizing: border-box;
+  height: 40px;
+  width: 220px;
+  padding: 8px 24px;
+  border-radius: 30px;
+  box-shadow: 0px 3px 3px #e4e4e4;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.main .feature .heading .button .primary {
+  color: #7c4fe0;
+}
+.main .feature .heading .button .primary .fa-lightbulb {
+  padding-right: 1px;
+}
+.main .feature .heading h2 {
+  width: 610px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 48px;
+}
+.main .feature .heading p {
+  width: 610px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.main .feature .content {
+  display: flex;
+  flex-direction: row;
+  width: 74%;
+  margin: auto;
+  justify-content: space-around;
+}
+.main .feature .content .image-box {
+  height: 324px;
+  width: 290px;
+  padding: 48px;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 10px #e4e4e4;
+  border-radius: 30px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-property: all;
+}
+.main .feature .content .image-box .feature-img {
+  margin: 0 0 16px;
+}
+.main .feature .content .image-box .feature-img img {
+  width: 20%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main .feature .content .image-box h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+.main .feature .content .image-box p {
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 300;
+}
+.main .feature .content .image-box:hover {
+  box-shadow: 0px -6px 12px #e4e4e4;
+}
 
 @media only screen and (min-width: 1100px) {
   .-container {
