@@ -429,6 +429,134 @@ body {
 .main .service-area .content .img-right img {
   width: 85%;
 }
+.main .discover-area {
+  background-color: #fff;
+  width: 100%;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+.main .discover-area .content {
+  width: 74%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.main .discover-area .content .img-left {
+  position: relative;
+}
+.main .discover-area .content .img-left img {
+  width: 85%;
+}
+.main .discover-area .content .text-right {
+  width: 540px;
+}
+.main .discover-area .content .text-right h2 {
+  line-height: 1.4;
+  font-size: 48px;
+  margin: 0 0;
+  font-weight: 600;
+}
+.main .discover-area .content .text-right p {
+  padding: 16px 0 24px;
+  margin: 0;
+}
+.main .discover-area .content .text-right ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.main .discover-area .content .text-right ul .single-service {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 0;
+}
+.main .discover-area .content .text-right ul .single-service .box .fa-check {
+  color: #7c4fe0;
+}
+.main .discover-area .content .text-right ul .single-service p {
+  padding: 0 0 0 16px;
+  font-weight: 300;
+}
+.main .discover-area .content .text-right .icon-box {
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: row;
+}
+.main .discover-area .content .text-right .icon-box .icon {
+  height: 54px;
+  width: 54px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .discover-area .content .text-right .icon-box .icon .fas {
+  color: #7c4fe0;
+}
+.main .discover-area .content .text-right .icon-box .center-icon {
+  margin: 0 16px;
+}
+.main .work-area {
+  background: linear-gradient(134deg, #5135de, #8c3de9);
+  width: 100%;
+  height: 642px;
+  display: flex;
+  flex-direction: column;
+}
+.main .work-area .heading {
+  width: 730px;
+  margin: auto;
+}
+.main .work-area .heading .text-white {
+  text-align: center;
+  line-height: 1.4;
+  font-size: 48px;
+  margin: 0 0;
+  color: #fff;
+  font-weight: 600;
+}
+.main .work-area .heading p {
+  padding: 16px 0 24px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+}
+.main .work-area .content {
+  width: 74%;
+  margin: auto;
+  display: flex;
+}
+.main .work-area .content .single-work {
+  width: 350px;
+  height: 260px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.main .work-area .content .single-work .work-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .work-area .content .single-work .work-icon img {
+  width: 20%;
+}
+.main .work-area .content .single-work .text-white {
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  padding: 16px 0;
+  color: #fff;
+  font-weight: 500;
+}
+.main .work-area .content .single-work p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  color: #fff;
+}
 
 @media only screen and (min-width: 1100px) {
   .-container {
