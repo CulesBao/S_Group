@@ -309,6 +309,7 @@ body {
   padding-right: 1px;
 }
 .main .feature .heading h2 {
+  line-height: 1.4;
   width: 610px;
   font-weight: 600;
   text-align: center;
@@ -363,6 +364,70 @@ body {
 }
 .main .feature .content .image-box:hover {
   box-shadow: 0px -6px 12px #e4e4e4;
+}
+.main .service-area {
+  background-color: #f6f9fe;
+  width: 100%;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+.main .service-area .content {
+  width: 74%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.main .service-area .content .text-left {
+  width: 540px;
+}
+.main .service-area .content .text-left h2 {
+  line-height: 1.4;
+  font-size: 48px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+.main .service-area .content .text-left ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main .service-area .content .text-left ul .single-service {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: row;
+}
+.main .service-area .content .text-left ul .single-service .box {
+  height: 54px;
+  width: 90px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin-right: 24px;
+}
+.main .service-area .content .text-left ul .single-service p {
+  margin: 0;
+  font-weight: 300;
+}
+.main .service-area .content .text-left .button {
+  height: fit-content;
+  width: fit-content;
+  padding: 18px 30px;
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(134deg, #4728dc, #8230e7);
+}
+.main .service-area .content .text-left .button a {
+  text-decoration: none;
+  color: #fff;
+}
+.main .service-area .content .img-right {
+  position: relative;
+  left: 8%;
+}
+.main .service-area .content .img-right img {
+  width: 85%;
 }
 
 @media only screen and (min-width: 1100px) {

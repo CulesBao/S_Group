@@ -380,6 +380,7 @@ body
             }
             h2
             {
+                line-height: 1.4;
                 width: 610px;
                 font-weight: 600;
                 text-align: center;
@@ -442,6 +443,83 @@ body
             .image-box:hover
             {
                 box-shadow: 0px -6px 12px #e4e4e4;
+            }
+        }
+    }
+    .service-area
+    {
+        background-color: #f6f9fe;
+        width: 100%;
+        padding: 100px 0;  
+        box-sizing: border-box;
+        .content
+        {
+            width: 74%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            .text-left
+            {
+                width: 540px;
+                h2
+                {
+                    line-height: 1.4;
+                    font-size: 48px;
+                    margin-top: 0;
+                    margin-bottom: 24px;
+                    font-weight: 600;
+                }
+                ul
+                {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    .single-service
+                    {
+                        padding: 8px 0;
+                        display: flex;
+                        flex-direction: row;
+                        .box
+                        {
+                            height: 54px;
+                            width: 90px;
+                            box-sizing: border-box;
+                            border: 1px solid black;
+                            margin-right: 24px;
+                        }
+                        p
+                        {
+                            margin: 0;
+                            font-weight: 300;
+
+                        }
+                    }
+                }
+                .button
+                {
+                    height: fit-content;
+                    width: fit-content;
+                    padding: 18px 30px;
+                    margin-top: 24px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 10px;
+                    background: linear-gradient(134deg, #4728dc, #8230e7);
+                    a
+                    {
+                        text-decoration: none;
+                        color: $--primary-bg-color--white;
+                    }
+                }
+            }
+            .img-right
+            {
+                position: relative;
+                left: 8%;
+                img
+                {
+                    width: 85%;
+                }
             }
         }
     }
