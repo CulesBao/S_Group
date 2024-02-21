@@ -807,6 +807,226 @@ body
             }
         }
     }
+    .price-area
+    {
+        background-color: #f6f9fe;
+        width: 100%;
+        padding: 100px 0;  
+        box-sizing: border-box;
+        .heading
+        {
+            height: 214px;
+            width: 74%;
+            margin: auto;
+            display: flex;
+            // padding: 0 15px;
+            flex-direction: column;
+            align-items: center;
+            h2
+            {
+                line-height: 1.4;
+                width: 730px;
+                font-weight: 600;
+                text-align: center;
+                margin: 0;
+                font-size: 48px;
+            }
+            p
+            {
+                width: 730px;
+                text-align: center;
+                font-size: 16px;
+                margin-bottom: 0;
+                font-weight: 300;
+            }
+        }
+        .content
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 74%;
+            margin: auto;
+            .price-box
+            {
+                position: relative;
+                padding: 48px;
+                background-color: $--primary-bg-color--white;
+                height: fit-content;
+                width: 254px;
+                border: 1px solid #b8b2b2;
+                border-radius: 18px;
+                .plan-thumb
+                {
+                    height: 80px;
+                    text-align: center;
+                    img
+                    {
+                        height: 100%;
+                    }
+                }
+                h4
+                {
+                    text-transform: uppercase;
+                    margin: 20px 0 0;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #4e4e4e;
+                    text-align: center;
+                    letter-spacing: 2px;
+                }
+                h2
+                {
+                    color: $--primary-bg-color--purple;
+                    text-align: center;
+                    font-size: 48px;
+                    margin: 16px 0;
+                }
+                ul
+                {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    width: 254px;
+                    .border-top
+                    {
+                        width: 100%;
+                        text-align: center;
+                        font-size: 16px;
+                        padding: 16px 0;
+                        margin: 0;
+                        font-weight: 400;
+                        border-top: 1px solid #b8b2b2;
+                    }
+                    .border-bottom
+                    {
+                        border-bottom: 1px solid #b8b2b2;
+                    }
+                }
+                .position-absolute
+                {
+                    margin: 24px 0 0;
+                    padding: 18px 30px;
+                    height: fit-content;
+                    width: fit-content;
+                    font-size: 16px;
+                    font-weight: 500;
+                    background: linear-gradient(134deg, #4728dc, #8230e7);
+                    color: $--primary-bg-color--white;
+                    text-decoration: none;
+                    border-radius: 8px;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: -6%;
+                }
+            }
+        }
+        .question
+        {
+            width: 74%;
+            margin: auto;
+            text-align: center;
+            p
+            {
+                margin: 0;
+                padding: 84px 0 0;
+                font-size: 16px;
+                color: $--primary-bg-color--black;
+                font-weight: 500;
+                a
+                {
+                    color: $--primary-bg-color--black;
+                }
+            }
+        }
+    }
+    .faq-area
+    {
+        background-color: $--primary-bg-color--white;
+        width: 100%;
+        padding: 100px 0;  
+        box-sizing: border-box;
+        .heading
+        {
+            height: 214px;
+            width: 74%;
+            margin: auto;
+            display: flex;
+            // padding: 0 15px;
+            flex-direction: column;
+            align-items: center;
+            h2
+            {
+                line-height: 1.4;
+                width: 730px;
+                font-weight: 600;
+                text-align: center;
+                margin: 0;
+                font-size: 48px;
+            }
+            p
+            {
+                width: 730px;
+                text-align: center;
+                font-size: 16px;
+                margin-bottom: 0;
+                font-weight: 300;
+            }
+        }
+        .content
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 74%;
+            margin: auto;
+            .left
+            {
+                width: calc(50% - 15px);
+                padding-right: 15px;
+            }
+            .right
+            {
+                width: calc(50% - 15px);
+                padding-left: 15px;
+            }
+            h5
+            {
+                font-size: 16px;
+                padding: 16px 0;
+                font-weight: 600;
+                margin: 0;
+            }
+            p
+            {
+                font-size: 16px;
+                padding: 16px 0;
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+        .question
+        {
+            width: 74%;
+            margin: auto;
+            text-align: center;
+            p
+            {
+                margin: 0;
+                padding: 24px 16px 0;
+                font-size: 16px;
+                color: $--primary-bg-color--black;
+                font-weight: 500;
+                a
+                {
+                    color: $--primary-bg-color--black;
+                }
+            }
+        }
+    }
 }
 @media only screen and (min-width: 1100px){
     .-container

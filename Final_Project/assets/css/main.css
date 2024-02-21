@@ -661,6 +661,195 @@ body {
 .main .review-area .content .blog:hover {
   box-shadow: 0px 8px 15px 6px #e4e4e4;
 }
+.main .price-area {
+  background-color: #f6f9fe;
+  width: 100%;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+.main .price-area .heading {
+  height: 214px;
+  width: 74%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .price-area .heading h2 {
+  line-height: 1.4;
+  width: 730px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  font-size: 48px;
+}
+.main .price-area .heading p {
+  width: 730px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.main .price-area .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 74%;
+  margin: auto;
+}
+.main .price-area .content .price-box {
+  position: relative;
+  padding: 48px;
+  background-color: #fff;
+  height: fit-content;
+  width: 254px;
+  border: 1px solid #b8b2b2;
+  border-radius: 18px;
+}
+.main .price-area .content .price-box .plan-thumb {
+  height: 80px;
+  text-align: center;
+}
+.main .price-area .content .price-box .plan-thumb img {
+  height: 100%;
+}
+.main .price-area .content .price-box h4 {
+  text-transform: uppercase;
+  margin: 20px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #4e4e4e;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.main .price-area .content .price-box h2 {
+  color: #7c4fe0;
+  text-align: center;
+  font-size: 48px;
+  margin: 16px 0;
+}
+.main .price-area .content .price-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 254px;
+}
+.main .price-area .content .price-box ul .border-top {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  padding: 16px 0;
+  margin: 0;
+  font-weight: 400;
+  border-top: 1px solid #b8b2b2;
+}
+.main .price-area .content .price-box ul .border-bottom {
+  border-bottom: 1px solid #b8b2b2;
+}
+.main .price-area .content .price-box .position-absolute {
+  margin: 24px 0 0;
+  padding: 18px 30px;
+  height: fit-content;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(134deg, #4728dc, #8230e7);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6%;
+}
+.main .price-area .question {
+  width: 74%;
+  margin: auto;
+  text-align: center;
+}
+.main .price-area .question p {
+  margin: 0;
+  padding: 84px 0 0;
+  font-size: 16px;
+  color: #212529;
+  font-weight: 500;
+}
+.main .price-area .question p a {
+  color: #212529;
+}
+.main .faq-area {
+  background-color: #fff;
+  width: 100%;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+.main .faq-area .heading {
+  height: 214px;
+  width: 74%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .faq-area .heading h2 {
+  line-height: 1.4;
+  width: 730px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  font-size: 48px;
+}
+.main .faq-area .heading p {
+  width: 730px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.main .faq-area .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 74%;
+  margin: auto;
+}
+.main .faq-area .content .left {
+  width: calc(50% - 15px);
+  padding-right: 15px;
+}
+.main .faq-area .content .right {
+  width: calc(50% - 15px);
+  padding-left: 15px;
+}
+.main .faq-area .content h5 {
+  font-size: 16px;
+  padding: 16px 0;
+  font-weight: 600;
+  margin: 0;
+}
+.main .faq-area .content p {
+  font-size: 16px;
+  padding: 16px 0;
+  font-weight: 400;
+  margin: 0;
+}
+.main .faq-area .question {
+  width: 74%;
+  margin: auto;
+  text-align: center;
+}
+.main .faq-area .question p {
+  margin: 0;
+  padding: 24px 16px 0;
+  font-size: 16px;
+  color: #212529;
+  font-weight: 500;
+}
+.main .faq-area .question p a {
+  color: #212529;
+}
 
 @media only screen and (min-width: 1100px) {
   .-container {
