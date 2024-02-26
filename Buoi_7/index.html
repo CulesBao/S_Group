@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buổi 7</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <h2>Giải phương trình bậc 2.</h2>
+            <div class="quadratic">
+                <input type="number" id="a" placeholder="a" step="any">
+                <label for="a">x<sup>2</sup> + </label>
+                <input type="number" id="b" placeholder="b" step="any">
+                <label for="b">x + </label>
+                <input type="number" id="c" placeholder="c" step="any">
+                <label for="c"> = 0</label>
+            </div>
+            <button onclick="solvequadratic()">Giải</button>
+            <p id="result"></p>
+            <script src="./assets/js/script.js"></script>
+        </div>
+        <div class="content">
+            <h2>Tim ngày tiếp theo</h2>
+            <div class="nextDay">
+                <input type="number" id="dd" placeholder="dd" step="any">
+                <label for="dd"> / </label>
+                <input type="number" id="mm" placeholder="mm" step="any">
+                <label for="mm"> / </label>
+                <input type="number" id="yyyy" placeholder="yyyy" step="any">
+            </div>
+            <button onclick="findnextDay()">Tìm</button>
+            <p id="solve"></p>
+            <script src="./assets/js/script.js"></script>
+        </div>
+    </div>
+</body>
+</html>
