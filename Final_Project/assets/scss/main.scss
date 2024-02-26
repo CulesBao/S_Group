@@ -428,13 +428,14 @@ body
         {
             display: flex;
             flex-direction: row;
-            width: 74%;
+            width: 80%;
             margin: auto;
             justify-content: space-around;
             .image-box
             {
-                height: 324px;
-                width: 290px;
+                position: relative;
+                height: 300px;
+                width: 350px;
                 padding: 48px;
                 box-sizing: border-box;
                 box-shadow: 0px 5px 10px #e4e4e4;
@@ -471,6 +472,7 @@ body
             .image-box:hover
             {
                 box-shadow: 0px -6px 12px #e4e4e4;
+                top: 10%;
             }
         }
     }
@@ -1079,17 +1081,21 @@ body
             }
             @keyframes appear-from-left {
                 0%{
+                    opacity: 0;
                     left: -30%;
                 }
                 100%{
+                    opacity: 1;
                     left: 3%;
                 }
             }
             @keyframes appear-from-right {
                 0%{
+                    opacity: 0;
                     left: 30%;
                 }
                 100%{
+                    opacity: 1;
                     left: -3%;
                 }
             }
