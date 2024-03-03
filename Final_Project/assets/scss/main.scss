@@ -17,6 +17,7 @@ body
 }
 .main
 {
+    overflow-x: hidden;
     width: 100%;
     .same-background
     {
@@ -25,13 +26,12 @@ body
         {
             height: 84px;
             width: 100%; 
-            .-container
+            display: flex;
+            justify-content: center;
+            .content
             {
                 position: absolute;
-                max-width: 100%;
-                left: 11%;
-                right: 11%;
-                padding: 0px 30px;
+                width: 1100px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -227,20 +227,19 @@ body
         .nav
         {
             position: absolute;
-            top: -15%;
+            top: -20%;
             height: 84px;
             width: 100%; 
+            display: flex;
+            justify-content: center;
             background-color: $--primary-bg-color--white;
             transition-duration: 0.3s;
             transition-timing-function: ease-in-out;
             transition-property: all;
-            .-container
+            .content
             {
                 position: absolute;
-                max-width: 100%;
-                left: 11%;
-                right: 11%;
-                padding: 0px 30px;
+                width: 1100px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -424,14 +423,15 @@ body
         }
         .home
         {
+            position: relative;
             height: 716px;
-            width: 100%;
+            width: 100vw;
             display: flex;
-            .align-items--center
+            .content
             {
                 z-index: 1;
                 height: 100%;
-                width: 74%;
+                width: 1100px;
                 margin: auto;
                 display: flex;
                 flex-direction: row;
@@ -511,8 +511,7 @@ body
             .shape-bottom
             {
                 position: absolute;
-                top: auto;
-                bottom: -15%;
+                bottom: -1%;
                 left: 0;
                 right: 0;
             }
@@ -525,12 +524,14 @@ body
         height: 230px;   
         box-sizing: border-box;
         position: relative;
-        .align-items--center
+        .content
         {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
             height: 100%;
+            width: 1100px;
+            margin: auto;
             .counter
             {
                 width: calc(74% / 4);
@@ -570,7 +571,7 @@ body
         .heading
         {
             height: 330px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -626,10 +627,10 @@ body
         {
             display: flex;
             flex-direction: row;
-            width: 80%;
+            width: 1100px;
             height: 300px;
             margin: auto;
-            justify-content: space-around;
+            justify-content: space-between;
             .image-box
             {
                 position: relative;
@@ -683,7 +684,7 @@ body
         box-sizing: border-box;
         .content
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -768,7 +769,7 @@ body
         box-sizing: border-box;
         .content
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -881,7 +882,7 @@ body
         }
         .content
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             .single-work
@@ -941,7 +942,7 @@ body
         .heading
         {
             height: 270px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -995,7 +996,7 @@ body
         }
         .content
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             flex-direction: row;
@@ -1015,7 +1016,7 @@ body
         .heading
         {
             height: 330px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -1073,7 +1074,7 @@ body
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            width: 90%;
+            width: 1120px;
             margin: auto;
             .blog
             {
@@ -1150,7 +1151,7 @@ body
         .heading
         {
             height: 214px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -1187,7 +1188,7 @@ body
             flex-direction: row;
             align-items: center;
             justify-content: space-evenly;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             position: relative;
             .price-box
@@ -1301,7 +1302,7 @@ body
         }
         .question
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             text-align: center;
             p
@@ -1327,7 +1328,7 @@ body
         .heading
         {
             height: 214px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             // padding: 0 15px;
@@ -1365,7 +1366,7 @@ body
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             .left
             {
@@ -1394,7 +1395,7 @@ body
         }
         .question
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             text-align: center;
             p
@@ -1420,7 +1421,7 @@ body
         .heading
         {
             height: 214px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             // padding: 0 15px;
@@ -1458,7 +1459,7 @@ body
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             .expert
             {
@@ -1545,7 +1546,7 @@ body
         .heading
         {
             // height: 214px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             // padding: 0 15px;
@@ -1596,7 +1597,7 @@ body
         .heading
         {
             height: 214px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             // padding: 0 15px;
@@ -1622,7 +1623,7 @@ body
         }
         .sub-form
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             // padding: 0 15px;
@@ -1677,7 +1678,7 @@ body
         .heading
         {
             height: 214px;
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             // padding: 0 15px;
@@ -1711,7 +1712,7 @@ body
         }
         .content
         {
-            width: 74%;
+            width: 1100px;
             margin: auto;
             display: flex;
             flex-direction: row;
@@ -1905,7 +1906,7 @@ body
             {
                 display: flex;
                 justify-content: space-between;
-                width: 74%;
+                width: 1100px;
                 margin: auto;
                 padding: 24px 0;
                 box-sizing: border-box;
@@ -1942,9 +1943,16 @@ body
         }
     }
 }
-@media only screen and (min-width: 1100px){
-    .-container
+
+
+//responsive
+@media only screen and (max-width: 1200px) {
+    .content
     {
-        max-width: 900px;
+        width: 960px !important;
     }
-  }
+    .heading
+    {
+        width: 960px !important;
+    }
+}
