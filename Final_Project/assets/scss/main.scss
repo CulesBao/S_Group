@@ -996,15 +996,72 @@ body
         }
         .content
         {
+            position: relative;
             width: 1100px;
             margin: auto;
-            display: flex;
-            flex-direction: row;
-            overflow: hidden;
-            img
+            .slides
             {
-                width: 25%;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                input
+                {
+                    display: none;
+                }
+                img
+                {
+                    transition: 1s;
+                    width: 25%;
+                }
+                #radio1:checked ~ .first
+                {
+                    margin-left: 0;
+                }
+                #radio2:checked ~ .first
+                {
+                    margin-left: -25%;
+                }
+                #radio3:checked ~ .first
+                {
+                    margin-left: -50%;
+                }
+                #radio4:checked ~ .first
+                {
+                    margin-left: -75%;
+                }
+                #radio5:checked ~ .first
+                {
+                    margin-left: -100%;
+                }
             }
+            .nav-manual
+            {   
+                position: absolute;  
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -8%; 
+                z-index: 2;
+                display: flex;
+                label
+                {
+                    margin-top: 18px;
+                    border: 2px solid $--primary-bg-color--purple;
+                    padding: 5px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: 1s;
+                    background: transparent;
+                }
+                label:not(:last-child)
+                {
+                    margin-right: 10px;
+                }
+                label:hover
+                {
+                    background-color: $--primary-bg-color--purple;
+                }
+            }
+            
         }
     }
     .review-area

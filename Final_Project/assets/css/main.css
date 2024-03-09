@@ -819,14 +819,59 @@ body {
   font-weight: 300;
 }
 .main .screenshot .content {
+  position: relative;
   width: 1100px;
   margin: auto;
+}
+.main .screenshot .content .slides {
   display: flex;
   flex-direction: row;
   overflow: hidden;
 }
-.main .screenshot .content img {
+.main .screenshot .content .slides input {
+  display: none;
+}
+.main .screenshot .content .slides img {
+  transition: 1s;
   width: 25%;
+}
+.main .screenshot .content .slides #radio1:checked ~ .first {
+  margin-left: 0;
+}
+.main .screenshot .content .slides #radio2:checked ~ .first {
+  margin-left: -25%;
+}
+.main .screenshot .content .slides #radio3:checked ~ .first {
+  margin-left: -50%;
+}
+.main .screenshot .content .slides #radio4:checked ~ .first {
+  margin-left: -75%;
+}
+.main .screenshot .content .slides #radio5:checked ~ .first {
+  margin-left: -100%;
+}
+.main .screenshot .content .nav-manual {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
+  z-index: 2;
+  display: flex;
+}
+.main .screenshot .content .nav-manual label {
+  margin-top: 18px;
+  border: 2px solid #7c4fe0;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+  background: transparent;
+}
+.main .screenshot .content .nav-manual label:not(:last-child) {
+  margin-right: 10px;
+}
+.main .screenshot .content .nav-manual label:hover {
+  background-color: #7c4fe0;
 }
 .main .review-area {
   background-color: #fff;
