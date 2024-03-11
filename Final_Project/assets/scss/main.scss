@@ -634,10 +634,10 @@ body
             .image-box
             {
                 position: relative;
-                height: 300px;
-                width: 350px;
+                height: 204px;
+                width: 254px;
                 padding: 48px;
-                box-sizing: border-box;
+                // box-sizing: border-box;
                 box-shadow: 0px 5px 10px #e4e4e4;
                 border-radius: 30px;
                 transition-duration: 0.3s;
@@ -1653,11 +1653,11 @@ body
         box-sizing: border-box;
         .heading
         {
-            height: 214px;
+            // height: 214px;
             width: 1100px;
             margin: auto;
             display: flex;
-            // padding: 0 15px;
+            padding: 0 15px;
             flex-direction: column;
             align-items: center;
             h2
@@ -1680,10 +1680,10 @@ body
         }
         .sub-form
         {
-            width: 1100px;
-            margin: auto;
+            width: 100%;
+            // margin: auto;
             display: flex;
-            // padding: 0 15px;
+            padding: 0 15px;
             flex-direction: column;
             align-items: center;
             input
@@ -1897,8 +1897,9 @@ body
         box-sizing: border-box;
         .content
         {
-            padding: 150px 0 100px;
             display: flex;
+            margin: auto;
+            padding: 150px 0 100px;
             flex-direction: row;
             justify-content: center;
             .footer-items
@@ -2004,12 +2005,108 @@ body
 
 //responsive
 @media only screen and (max-width: 1200px) {
-    .content
+        .content
+        {
+            width: 960px !important;
+        }
+        .heading
+        {
+            width: 960px !important;
+        }
+        .main
+        {
+            .feature, .review-area, .price-area, .faq-area, .team-area, .download-area, .sub-area
+            , .contact-area
+            {
+                .heading
+                {
+                    h2
+                    {
+                        width: 610px;
+                    }
+                    p
+                    {
+                        width: 610px;
+                    }
+                }
+            }
+            .feature
+            {
+                .content
+                {
+                    .image-box
+                    {
+                        height: 228px !important;
+                        width:  194px !important;
+                    }
+                }
+            }
+            .work-area
+            {
+                .heading
+                {
+                    width: 610px !important ;
+                }
+            }
+            .screenshot
+            {
+                .heading
+                {
+                    height: 370px;
+                    h2
+                    {
+                        width: 610px;
+                    }
+                    p
+                    {
+                        width: 610px;
+                    }
+                }
+            }
+            .sub-area
+            {
+                .sub-form
+                {
+                    // width: 960px !important;
+                    input, button
+                    {
+                        width: 610px;
+                    }
+                }
+            }
+        }
+}
+@media only screen and (max-width: 1025px) {
+    .screenshot
     {
-        width: 960px !important;
-    }
-    .heading
-    {
-        width: 960px !important;
+        .content
+        {
+            .slides
+            {
+                img{
+                    width: calc(100% / 3) !important;
+                }
+                #radio1:checked ~ .first
+                {
+                    margin-left: 0;
+                }
+                #radio2:checked ~ .first
+                {
+                    margin-left: - calc(100% / 3) !important;
+                }
+                #radio3:checked ~ .first
+                {
+                    margin-left: - calc(200% / 3) !important;
+                }
+                #radio4:checked ~ .first
+                {
+                    margin-left: - calc(300% / 3) !important;
+                }
+                #radio5:checked ~ .first
+                {
+                    margin-left: - calc(400% / 3) !important;
+                }
+            }
+        }
     }
 }
