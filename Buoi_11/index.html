@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="create-btn">Tạo mới</button>
+        </div>
+        <!-- list card -->
+        <div class="cards">
+            <div class="card">
+                <div class="card-item">
+                    <i class="fas fa-address-book"></i>
+                    <span id="name">Huy Nam</span>
+                </div>
+                <div class="card-item">
+                    <i class="fas fa-phone"></i>
+                    <span id="phone">+0123123813</span>
+                </div>
+                <div class="card-item">
+                    <i class="fas fa-envelope"></i>
+                    <span id="mail">example@gmail.com</span>
+                </div>
+                <div class="action">
+                    <i id="delete" class="fas fa-trash"></i>
+                    <i id="update" class="fas fa-pen"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-container">
+        <div class="popup-main">
+            <label for="field-name">Tên</label>
+            <input type="text" id="field-name">
+            <label for="field-phone">Số điện thoại</label>
+            <input type="text" id="field-phone">
+            <label for="field-email">Email</label>
+            <input type="text" id="field-mail">
+            <p class="alert"></p>
+            <button onclick="onCreateAlert()">Tạo</button>
+        </div>
+    </div>
+    <div class="popup-container-update">
+        <div class="popup-main-update">
+            <label for="field-name-update">Tên</label>
+            <input type="text" id="field-name-update">
+            <label for="field-phone-update">Số điện thoại</label>
+            <input type="text" id="field-phone-update">
+            <label for="field-mail-update">Email</label>
+            <input type="text" id="field-mail-update">
+            <p class="alert-update"></p>
+            <button onclick="onUpdateAlert()">Sửa</button>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/script.js"></script>
+</html>

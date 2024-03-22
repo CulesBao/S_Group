@@ -1,0 +1,125 @@
+@charset "UTF-8";
+* {
+  font-family: "Hedvig Letters Sans", sans-serif;
+}
+
+#create-btn {
+  width: 100px;
+  height: 30px;
+  margin-bottom: 20px;
+  background-color: #a6d3fa;
+  border: none;
+  border-radius: 8px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: fit-content;
+  border: 1px solid #9e9e9e;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#delete, #update {
+  cursor: pointer;
+}
+
+.action {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.action > img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+body {
+  position: relative;
+}
+body .popup-container-update {
+  background-color: rgb(1, 1, 1);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+body .popup-container-update .popup-main-update {
+  background-color: white;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+body .popup-container-update .popup-main-update button {
+  margin-top: 10px;
+}
+body .popup-container-update .popup-main-update .alert-update {
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
+body .popup-container {
+  background-color: rgb(1, 1, 1);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+body .popup-container .popup-main {
+  background-color: white;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: fit-content;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+body .popup-container .popup-main button {
+  margin-top: 10px;
+}
+body .popup-container .popup-main .alert {
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+}
+body .active {
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền với độ mờ 50% */
+  z-index: 999;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  display: flex;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=main.css.map */
