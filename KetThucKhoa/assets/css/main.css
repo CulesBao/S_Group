@@ -9,9 +9,13 @@ body {
   font-weight: 400;
   line-height: 1.5;
   overflow: hidden;
+  overflow-y: scroll;
 }
 body .container img {
   position: absolute;
+}
+body .container #logo {
+  display: none;
 }
 body .container .top-right {
   width: 22%;
@@ -119,6 +123,179 @@ body .container .pop-up .login-form .container button:hover {
   background-color: white;
   color: #00a6da;
   box-shadow: 0px 1px 13px 0px #cccccc;
+}
+
+@media only screen and (max-width: 1300px) {
+  body .container .pop-up {
+    width: 64%;
+    left: 18%;
+  }
+}
+@media only screen and (max-width: 1096px) {
+  body .container .center {
+    top: 80%;
+  }
+  body .container .pop-up {
+    width: 72%;
+    left: 14%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  body .container .center {
+    top: 83%;
+  }
+  body .container .pop-up {
+    width: 78%;
+    left: 11%;
+  }
+}
+@media only screen and (max-width: 905px) {
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 82%;
+    left: 9%;
+  }
+}
+@media only screen and (max-width: 732px) {
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 88%;
+    left: 6%;
+  }
+}
+@media only screen and (max-width: 687px) {
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 96%;
+    left: 2%;
+  }
+}
+@media only screen and (max-width: 645px) {
+  body .container #logo {
+    display: block;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5%;
+  }
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 60%;
+    left: 20%;
+    top: 30%;
+    height: 60%;
+  }
+  body .container .pop-up .banner {
+    display: none;
+  }
+  body .container .pop-up .login-form {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 484px) {
+  body .container #logo {
+    display: block;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5%;
+  }
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 70%;
+    left: 15%;
+    top: 25%;
+    height: 60%;
+  }
+  body .container .pop-up .banner {
+    display: none;
+  }
+  body .container .pop-up .login-form {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  body .container #logo {
+    display: block;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5%;
+  }
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 78%;
+    left: 11%;
+    top: 25%;
+    height: 60%;
+  }
+  body .container .pop-up .banner {
+    display: none;
+  }
+  body .container .pop-up .login-form {
+    width: 100%;
+  }
+  body .container .pop-up .login-form .container .option p {
+    font-size: 18px;
+  }
+  body .container .pop-up .login-form .container label, body .container .pop-up .login-form .container input {
+    font-size: 13px;
+  }
+  body .container .pop-up .login-form .container .check-box {
+    font-size: 10px;
+  }
+  body .container .pop-up .login-form .container .check-box input {
+    width: 15px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  body .container #logo {
+    display: block;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5%;
+  }
+  body .container .center {
+    top: 85%;
+  }
+  body .container .pop-up {
+    width: 78%;
+    left: 11%;
+    top: 25%;
+    height: 60%;
+  }
+  body .container .pop-up .banner {
+    display: none;
+  }
+  body .container .pop-up .login-form {
+    width: 100%;
+  }
+  body .container .pop-up .login-form .container .option p {
+    font-size: 18px;
+  }
+  body .container .pop-up .login-form .container label, body .container .pop-up .login-form .container input {
+    font-size: 13px;
+  }
+  body .container .pop-up .login-form .container input {
+    height: 28px;
+    width: 98%;
+  }
+  body .container .pop-up .login-form .container .check-box {
+    font-size: 10px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

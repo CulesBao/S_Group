@@ -8,9 +8,13 @@ body {
     font-weight: 400;
     line-height: 1.5;
     overflow: hidden;
+    overflow-y: scroll;
     .container{
         img{
             position: absolute;
+        }
+    #logo{
+            display: none;
         }
         .top-right{
             width: 22%;
@@ -122,5 +126,234 @@ body {
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 1300px){
+    body{
+        .container{
+            .pop-up{
+                width: 64%;
+                left: 18%   ;
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 1096px){
+    body{
+        .container{
+            .center{
+                top: 80%;
+            }
+            .pop-up{
+                width: 72%;
+                left: 14%   ;
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 980px){
+    body{
+        .container{
+            .center{
+                top: 83%;
+            }
+            .pop-up{
+                width: 78%;
+                left: 11%   ;
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 905px){
+    body{
+        .container{
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 82%;
+                left: 9%   ;
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 732px){
+    body{
+        .container{
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 88%;
+                left: 6%   ;
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 687px){
+    body{
+        .container{
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 96%;
+                left: 2%;
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 645px){
+    body{
+        .container{
+            #logo{
+                display: block;
+                width: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 5%;
+            }
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 60%;
+                left: 20%;
+                top: 30%;
+                height: 60%;
+                .banner{
+                    display: none;
+                }
+                .login-form{
+                    width: 100%;
+                }
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 484px){
+    body{
+        .container{
+            #logo{
+                display: block;
+                width: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 5%;
+            }
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 70%;
+                left: 15%;
+                top: 25%;
+                height: 60%;
+                .banner{
+                    display: none;
+                }
+                .login-form{
+                    width: 100%;
+                }
+            }
+        }   
+    }
+}
+
+@media only screen and (max-width: 375px){
+    body{
+        .container{
+            #logo{
+                display: block;
+                width: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 5%;
+            }
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 78%;
+                left: 11%;
+                top: 25%;
+                height: 60%;
+                .banner{
+                    display: none;
+                }
+                .login-form{
+                    width: 100%;
+                    .container{
+                        .option{
+                            p{
+                                font-size: 18px;
+                            }
+                        }
+                        label, input{
+                            font-size: 13px;
+                        }
+                        .check-box{
+                            font-size: 10px;
+                            input{
+                                width: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }   
+    }
+}
+@media only screen and (max-width: 320px){
+    body{
+        .container{
+            #logo{
+                display: block;
+                width: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 5%;
+            }
+            .center{
+                top: 85%;
+            }
+            .pop-up{
+                width: 78%;
+                left: 11%;
+                top: 25%;
+                height: 60%;
+                .banner{
+                    display: none;
+                }
+                .login-form{
+                    width: 100%;
+                    .container{
+                        .option{
+                            p{
+                                font-size: 18px;
+                            }
+                        }
+                        label, input{
+                            font-size: 13px;
+                        }
+                        input{
+                            height: 28px;
+                            width: 98%;
+                        }
+                        .check-box{
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }   
     }
 }
