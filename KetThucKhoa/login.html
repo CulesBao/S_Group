@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
     <div class="container">
@@ -26,17 +27,23 @@
                         </div>
                     </div>
                     <label for="email">Email</label>
-                    <input type="text" name="" id="email" placeholder="Enter your email">
-                    <label for="password">Password</label>
-                    <input type="password" name="" id="password" placeholder="Enter your password">
+                    <input type="email" name="" id="email" placeholder="Enter your email">
+                    <div class="pas">
+                        <label for="password">Password</label>
+                        <input type="password" name="" id="password" placeholder="Enter your password">
+                        <i id="open" class="fas fa-eye"></i>
+                        <i id="hidden" class="fas fa-eye-slash"></i>
+                    </div>
                     <div class="check-box">
                         <input type="checkbox" id="checkbox">
                         <label for="checkbox">Remember me</label>
                     </div>
-                    <button>Login</button>
+                    <p class="warning">Incorrect account or password</p>
+                    <button onclick="loginLogic()">Login</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="./assets/js/login.js"></script>
 </html>
