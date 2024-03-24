@@ -10,36 +10,40 @@
 </head>
 <body>
     <div class="container">
-        <img src="./assets/pic/Group (3).png" alt="" id="logo">
         <img class="bottom-left" src="./assets/pic/Group.png" alt="">
         <img class="top-right" src="./assets/pic/Group (1).png" alt="">
         <img class="center" src="./assets/pic/Group (2).png" alt="">
-        <div class="pop-up">
-            <img class="banner" src="./assets/pic/Mask group.png" alt="">
-            <div class="login-form">
-                <div class="container">
-                    <div class="option">
-                        <div class="login">
-                            <p>Login</p>
+        <div class="mobile-version">
+            <img src="./assets/pic/Group (3).png" alt="" id="logo">
+            <div class="pop-up">
+                <img class="banner" src="./assets/pic/Mask group.png" alt="">
+                <div class="login-form">
+                    <div class="container">
+                        <div class="option">
+                            <div class="login">
+                                <p>Login</p>
+                            </div>
+                            <div class="register">
+                                <p>Register</p>
+                            </div>
                         </div>
-                        <div class="register">
-                            <p>Register</p>
+                        <div class="em">
+                            <label for="email">Email</label>
+                            <input type="email" name="" id="email" placeholder="Enter your email">
                         </div>
+                        <div class="pas">
+                            <label for="password">Password</label>
+                            <input type="password" name="" id="password" placeholder="Enter your password">
+                            <i id="open" class="fas fa-eye"></i>
+                            <i id="hidden" class="fas fa-eye-slash"></i>
+                        </div>
+                        <div class="check-box">
+                            <input type="checkbox" id="checkbox">
+                            <label for="checkbox">Remember me</label>
+                        </div>
+                        <p class="warning"></p>
+                        <button onclick="loginLogic()" id="login">Login</button>
                     </div>
-                    <label for="email">Email</label>
-                    <input type="email" name="" id="email" placeholder="Enter your email">
-                    <div class="pas">
-                        <label for="password">Password</label>
-                        <input type="password" name="" id="password" placeholder="Enter your password">
-                        <i id="open" class="fas fa-eye"></i>
-                        <i id="hidden" class="fas fa-eye-slash"></i>
-                    </div>
-                    <div class="check-box">
-                        <input type="checkbox" id="checkbox">
-                        <label for="checkbox">Remember me</label>
-                    </div>
-                    <p class="warning">Incorrect account or password</p>
-                    <button onclick="loginLogic()">Login</button>
                 </div>
             </div>
         </div>
