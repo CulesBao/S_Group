@@ -32,11 +32,16 @@ openBtn.addEventListener('click', function(){
 function loginLogic(){
     let emailValue = document.getElementById("email").value
     let passValue = password.value
+    let loadingAction = document.querySelector(".loading")
+    let todoContainer = document.querySelector(".todo-container")
+    let Container = document.querySelector(".container")
     let loginData = {
         login: emailValue,
         password: passValue
     }
 
+    loadingAction.style.zIndex = "999"
+    loadingAction.style.backgroundColor = "rgba(0, 0, 0, 0.5)"
     fetch('https://recruitment-api.pyt1.stg.jmr.pl/login', {
         method: 'POST',
         headers: {
@@ -55,12 +60,15 @@ function loginLogic(){
         console.log("Thanh cong");
         let warning = document.querySelector(".warning")
         if (data.status === "ok"){
-            warning.innerText = "Login complete!"
-            warning.style.color = "green"
+            warning.innerText = ""
+            Container.style.display = "none"
+            todoContainer.style.display = "flex"
         }
         else{
             warning.innerText = "*Incorrect account or password"
         }
+        loadingAction.style.zIndex = "-555"
+        loadingAction.style.background = "transparent"
     })
     .catch(error => {
         console.log("Loi", error)

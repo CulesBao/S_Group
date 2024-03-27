@@ -41,15 +41,22 @@ data.then(function(res){
                 </div>
                 <div class="more-info">
                     <div class="index">
-                        <div class="slug">
-                            <p>${item.slug}</p>
-                        </div>
                         <div class="userId">
                             <p>${item.userId}</p>
                         </div>
                     </div>
                     <p class="publishedAt">Publish: ${item.publishedAt}</p>
                     <p class="updateAt">Update: ${item.updatedAt}</p>
+                </div>
+                <div class="function-btn">
+                    <div class="update-btn">
+                        <p>Update</p>
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <div class="delete-btn">
+                        <p>Delete</p>
+                        <i class="fas fa-trash"></i>
+                    </div>
                 </div>
             </div>
         `;

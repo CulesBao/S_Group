@@ -22,15 +22,13 @@ p, h3 {
   gap: 30px;
 }
 .container .child {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
   width: 560px;
   height: fit-content;
   background-color: #fff;
   border-radius: 10px;
-  position: relative;
 }
 .container .child .img-thumbanail {
-  padding: 80px 0;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,54 +89,5 @@ p, h3 {
 .container .child .more-info .updateAt {
   padding-bottom: 30px;
 }
-.container .child .function-btn {
-  position: absolute;
-  display: flex;
-  gap: 15px;
-  top: 3%;
-  right: 5%;
-}
-.container .child .function-btn p {
-  margin-right: 5px;
-  font-size: 14px;
-  font-weight: 600;
-  display: none;
-}
-.container .child .function-btn .update-btn, .container .child .function-btn .delete-btn {
-  display: flex;
-  height: 30px;
-  width: 50px;
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  border-radius: 30px;
-  transition-duration: 0.2s;
-  transition-property: all;
-}
-.container .child .function-btn .update-btn {
-  color: blue;
-}
-.container .child .function-btn .delete-btn {
-  color: red;
-}
-.container .child .function-btn .update-btn:hover {
-  width: 100px;
-  cursor: pointer;
-  background-color: blue;
-  color: white;
-}
-.container .child .function-btn .update-btn:hover p {
-  display: block;
-}
-.container .child .function-btn .delete-btn:hover {
-  width: 100px;
-  cursor: pointer;
-  background-color: red;
-  color: white;
-}
-.container .child .function-btn .delete-btn:hover p {
-  display: block;
-}
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main.cssv.map */
