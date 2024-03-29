@@ -61,8 +61,9 @@ function loginLogic(){
         let warning = document.querySelector(".warning")
         if (data.status === "ok"){
             warning.innerText = ""
-            Container.style.display = "none"
-            todoContainer.style.display = "flex"
+            // Container.style.display = "none"
+            // todoContainer.style.display = "flex"
+            window.location.href = "https://culesbao.github.io/S_Group/KetThucKhoa/index.html"
         }
         else{
             warning.innerText = "*Incorrect account or password"

@@ -7,9 +7,10 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    overflow: hidden !important;
+    // overflow: hidden !important;
     // min-height: 550px;
-    // overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     .container{
         display: flex;
         justify-content: center;
@@ -267,7 +268,7 @@ body {
           
     }
     .todo-container{
-        display: none;
+        display: flex;
         height: 100vh;
         width: 100vw;
         flex-direction: column;
@@ -354,7 +355,7 @@ body {
                                 width: 55px;
                                 position: absolute;
                                 left: 78%;
-                                top: 12%;
+                                top: 10%;
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-around;
@@ -444,63 +445,194 @@ body {
     }
 }
 
-// @media only screen and (max-width: 1300px){
-//     body{
-//         .container{
-//             .pop-up{
-//                 width: 64%;
-//                 left: 18%   ;
-//             }
-//         }   
-//     }
-// }
+@media only screen and (max-width: 1450px){
+    body{
+         .todo-container
+         {
+            .four-list-center{
+                width: 1200px;
+                .parent{
+                    justify-content: space-around;
+                    .todo{
 
-// @media only screen and (max-width: 1096px){
-//     body{
-//         .container{
-//             .center{
-//                 top: 80%;
-//             }
-//             .pop-up{
-//                 width: 72%;
-//                 left: 14%   ;
-//             }
-//         }   
-//     }
-// }
+                        .status, .border{
+                            width: 250px;
+                        }
+                        .task-container{
+                            width: 250px;
+                            .task-content{
+                                margin: 15px 0;
+                                padding: 15px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+         }
+    }
+}
 
-// @media only screen and (max-width: 980px){
-//     body{
-//         .container{
-//             .center{
-//                 top: 83%;
-//             }
-//             .pop-up{
-//                 width: 78%;
-//                 left: 11%   ;
-//             }
-//         }   
-//     }
-// }
+@media only screen and (max-width: 1250px){
+    body{
+        overflow-y: auto;
+         .todo-container
+         {
+            .four-list-center{
+                width: 1000px;
+                .parent{
+                    gap: 15px;
+                    .todo{
+                        .status, .border{
+                            width: 300px;
+                        }
+                        .task-container{
+                            width: 300px;
+                            .task-content{
+                                margin: 15px 0;
+                                padding: 15px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+         }
+    }
+}
 
-// @media only screen and (max-width: 905px){
-//     body{
-//         .container{
-//             .center{
-//                 top: 85%;
-//             }
-//             .pop-up{
-//                 width: 82%;
-//                 left: 9%   ;
-//             }
-//         }   
-//     }
-// }
+@media only screen and (max-width: 1050px){
+    body{
+        overflow-y: auto;
+         .todo-container
+         {
+            .four-list-center{
+                width: 800px;
+                .parent{
+                    gap: 15px;
+                    .todo{
+                        .status, .border{
+                            width: 300px;
+                        }
+                        .task-container{
+                            width: 300px;
+                            .task-content{
+                                margin: 15px 0;
+                                padding: 15px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+         }
+    }
+}
+
+@media only screen and (max-width: 850px){
+    body{
+        overflow-y: scroll;
+        overflow-x: hidden;
+         .todo-container
+         {
+            img{
+                width: 100px;
+            }
+            .four-list-center{
+                margin-top: 0;
+                width: 600px;
+                .parent{
+                    gap: 30px;
+                    .todo{
+                        .status, .border{
+                            width: 250px;
+                        }
+                        .task-container{
+                            width: 250px;
+                            .task-content{
+                                margin: 15px 0;
+                                padding: 15px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+         }
+    }
+}
+
+@media only screen and (max-width: 650px){
+    body{
+        overflow-y: scroll;
+        overflow-x: hidden;
+         .todo-container
+         {
+            img{
+                width: 100px;
+            }
+            .four-list-center{
+                margin-top: 0;
+                width: 400px;
+                .parent{
+                    gap: 30px;
+                    .todo{
+                        .status, .border{
+                            width: 400px;
+                        }
+                        .task-container{
+                            width: 400px;
+                            .task-content{
+                                margin: 15px 0;
+                                padding: 15px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+         }
+    }
+}
+
+@media only screen and (max-width: 450px){
+    body{
+        overflow-y: scroll;
+        overflow-x: hidden;
+         .todo-container
+         {
+            img{
+                width: 100px;
+            }
+            .four-list-center{
+                margin-top: 0;
+                width: 250px;
+                .parent{
+                    gap: 30px;
+                    .todo{
+                        .status, .border{
+                            width: 250px;
+                        }
+                        .task-container{
+                            width: 250px;
+                            .task-content{
+                                margin: 15px 0;
+                                padding: 15px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+         }
+    }
+}
+
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 740px){
     body{
-         overflow: hidden !important;
+         overflow-x: hidden !important;
         .container{
             .center{
                 top: 85%;
@@ -515,7 +647,8 @@ body {
 
 @media only screen and (max-width: 630px){
     body{
-        overflow: hidden !important;
+        overflow-x: hidden !important;
+
         .container{
             .pop-up{
                 width: 550px;
@@ -528,7 +661,8 @@ body {
 
 @media only screen and (max-width: 570px){
     body{
-        overflow: hidden !important;
+        overflow-x: hidden !important;
+
         .container{
             .center{
                 top: 85%;
@@ -562,7 +696,8 @@ body {
 
 @media only screen and (max-width: 440px){
     body{
-        overflow: hidden !important;
+        overflow-x: hidden !important;
+
         overflow-y: scroll;
         .container{
             .center{
@@ -588,7 +723,8 @@ body {
 
 @media only screen and (max-width: 375px){
     body{
-        overflow: hidden !important;
+        overflow-x: hidden !important;
+
         overflow-y: scroll;
         .container{
             .center{
@@ -614,7 +750,8 @@ body {
 
 @media only screen and (max-width: 320px){
     body{
-        overflow: hidden !important;
+        overflow-x: hidden !important;
+
         overflow-y: scroll;
         .container{
             .center{
