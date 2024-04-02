@@ -420,6 +420,120 @@ body .todo-container .four-list-center .parent .blocked .status, body .todo-cont
 body .todo-container .four-list-center .parent .blocked .status .count {
   background-color: #e74c3c;
 }
+body .popup-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body .popup-container .new {
+  width: 500px;
+  height: fit-content;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+body .popup-container .new .title {
+  margin: 30px 0 40px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #4d8eff;
+}
+body .popup-container .new .input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .popup-container .new .input input {
+  width: 350px;
+  box-sizing: border-box;
+  height: 25px;
+  margin-bottom: 10px;
+  padding: 0 6px;
+}
+body .popup-container .new .input textarea {
+  width: 350px;
+  box-sizing: border-box;
+}
+body .popup-container .new .selection {
+  margin: 40px 0 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+body .popup-container .new .selection button {
+  cursor: pointer;
+  height: 30px;
+  width: 70px;
+  border: unset;
+  border-radius: 30px;
+  font-weight: 600;
+}
+body .popup-container .new .selection #save {
+  background-color: #4d8eff;
+  color: #ffd;
+}
+body .popup-container .new .selection #save:active {
+  box-shadow: 0px 1px 13px 0px #cccccc;
+}
+body .popup-container .new .selection #cancel:active {
+  box-shadow: 0px 1px 13px 0px #cccccc;
+}
+body .popup-container .warning {
+  width: 500px;
+  height: fit-content;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+body .popup-container .warning .title {
+  margin: 20px 0 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #e74c3c;
+}
+body .popup-container .warning .selection {
+  margin: 20px 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+body .popup-container .warning .selection button {
+  cursor: pointer;
+  height: 30px;
+  width: 70px;
+  border: unset;
+  border-radius: 30px;
+  font-weight: 600;
+}
+body .popup-container .warning .selection #delete {
+  background-color: #e74c3c;
+  color: #ffd;
+}
+body .popup-container .warning .selection #delete:active {
+  box-shadow: 0px 1px 13px 0px #cccccc;
+}
+body .popup-container .warning .selection #cancel:active {
+  box-shadow: 0px 1px 13px 0px #cccccc;
+}
 
 @media only screen and (max-width: 1450px) {
   body .todo-container .four-list-center {
