@@ -161,7 +161,7 @@ body .container .pop-up .login-form .container button {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
-body .container .pop-up .login-form .container button:hover {
+body .container .pop-up .login-form .container button:active {
   background-color: white;
   color: #00a6da;
   box-shadow: 0px 1px 13px 0px #cccccc;
@@ -350,6 +350,7 @@ body .todo-container .four-list-center .parent .todo .task-container .task-conte
   position: relative;
 }
 body .todo-container .four-list-center .parent .todo .task-container .task-content .icons {
+  cursor: pointer;
   width: 55px;
   position: absolute;
   left: 78%;
@@ -421,7 +422,7 @@ body .todo-container .four-list-center .parent .blocked .status .count {
   background-color: #e74c3c;
 }
 body .popup-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -431,11 +432,11 @@ body .popup-container {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
 }
-body .popup-container .new {
+body .popup-container .update, body .popup-container .new {
   width: 500px;
   height: fit-content;
   background: white;
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
@@ -443,37 +444,42 @@ body .popup-container .new {
   justify-content: center;
   border-radius: 10px;
 }
-body .popup-container .new .title {
+body .popup-container .update .title, body .popup-container .new .title {
   margin: 30px 0 40px;
   font-size: 22px;
   font-weight: 600;
   color: #4d8eff;
 }
-body .popup-container .new .input {
+body .popup-container .update .input, body .popup-container .new .input {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-body .popup-container .new .input input {
+body .popup-container .update .input input, body .popup-container .new .input input {
   width: 350px;
+  border-radius: 5px;
   box-sizing: border-box;
   height: 25px;
   margin-bottom: 10px;
   padding: 0 6px;
 }
-body .popup-container .new .input textarea {
+body .popup-container .update .input textarea, body .popup-container .new .input textarea {
+  border-radius: 5px;
   width: 350px;
+  height: 150px;
   box-sizing: border-box;
+  padding: 6px;
+  font-family: "Inter", sans-serif;
 }
-body .popup-container .new .selection {
+body .popup-container .update .selection, body .popup-container .new .selection {
   margin: 40px 0 30px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-body .popup-container .new .selection button {
+body .popup-container .update .selection button, body .popup-container .new .selection button {
   cursor: pointer;
   height: 30px;
   width: 70px;
@@ -481,21 +487,33 @@ body .popup-container .new .selection button {
   border-radius: 30px;
   font-weight: 600;
 }
-body .popup-container .new .selection #save {
+body .popup-container .update .selection #save, body .popup-container .new .selection #save {
   background-color: #4d8eff;
   color: #ffd;
 }
-body .popup-container .new .selection #save:active {
+body .popup-container .update .selection #save:active, body .popup-container .new .selection #save:active {
   box-shadow: 0px 1px 13px 0px #cccccc;
 }
-body .popup-container .new .selection #cancel:active {
+body .popup-container .update .selection #cancel:active, body .popup-container .new .selection #cancel:active {
   box-shadow: 0px 1px 13px 0px #cccccc;
+}
+body .popup-container .update .selection #save {
+  background-color: #69ce7e;
+}
+body .popup-container .option {
+  margin: 10px 0;
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 13px;
 }
 body .popup-container .warning {
   width: 500px;
   height: fit-content;
   background: white;
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
@@ -646,6 +664,9 @@ body .popup-container .warning .selection #cancel:active {
     margin: 15px 0;
     padding: 15px 10px;
   }
+  body .popup-container .update, body .popup-container .new, body .popup-container .warning {
+    width: 400px;
+  }
 }
 @media only screen and (max-width: 450px) {
   body {
@@ -671,6 +692,15 @@ body .popup-container .warning .selection #cancel:active {
   body .todo-container .four-list-center .parent .todo .task-container .task-content {
     margin: 15px 0;
     padding: 15px 10px;
+  }
+  body .popup-container .update, body .popup-container .new, body .popup-container .warning {
+    width: 300px;
+  }
+  body .popup-container .update .input input, body .popup-container .update .input textarea, body .popup-container .new .input input, body .popup-container .new .input textarea, body .popup-container .warning .input input, body .popup-container .warning .input textarea {
+    width: 270px;
+  }
+  body .popup-container .option {
+    width: 300px;
   }
 }
 @media only screen and (max-width: 740px) {

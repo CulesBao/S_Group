@@ -20,11 +20,11 @@
                     <div class="status">
                         <p>Todo</p>
                         <div class="count">
-                            <p>3</p>
+                            <p id="count0">3</p>
                         </div>
                     </div>
                     <div class="border"></div>
-                    <div class="task-container">
+                    <div class="task-container" id="todo0">
                         <div class="task-content">
                             <div class="icons">
                                 <i class="fas fa-pen"></i>
@@ -49,8 +49,8 @@
                         </div>
                         <div class="task-content">
                             <div class="icons">
-                                <i class="fas fa-pen"></i>
-                                <i class="fas fa-trash"></i>
+                                <i class="fas fa-pen" onclick="onUpdate()"></i>
+                                <i class="fas fa-trash" onclick="onDelete()"></i>
                             </div>
                             <div class="category">
                                 <p>Makerting</p>
@@ -97,11 +97,11 @@
                     <div class="status">
                         <p>Doing</p>
                         <div class="count">
-                            <p>3</p>
+                            <p id="count1">3</p>
                         </div>
                     </div>
                     <div class="border"></div>
-                    <div class="task-container">
+                    <div class="task-container" id="todo1">
                         <div class="task-content">
                             <div class="icons">
                                 <i class="fas fa-pen"></i>
@@ -174,11 +174,11 @@
                     <div class="status">
                         <p>Completed</p>
                         <div class="count">
-                            <p>3</p>
+                            <p id="count2">3</p>
                         </div>
                     </div>
                     <div class="border"></div>
-                    <div class="task-container">
+                    <div class="task-container" id="todo2">
                         <div class="task-content">
                             <div class="icons">
                                 <i class="fas fa-pen"></i>
@@ -251,11 +251,11 @@
                     <div class="status">
                         <p>Blocked</p>
                         <div class="count">
-                            <p>3</p>
+                            <p id="count3">3</p>
                         </div>
                     </div>
                     <div class="border"></div>
-                    <div class="task-container">
+                    <div class="task-container" id="todo3">
                         <div class="task-content">
                             <div class="icons">
                                 <i class="fas fa-pen"></i>
@@ -291,25 +291,35 @@
             <div class="input">
                 <input type="text" id="category" placeholder="Category">
                 <input type="text" id="title" placeholder="Title">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Content"></textarea>
+                <textarea name="" id="content" cols="30" rows="10" placeholder="Content"></textarea>
             </div>
             <div class="selection">
                 <button id="cancel">Cancel</button>
                 <button id="save">Save</button>
             </div>
         </div>
-        <div class="new update">
+        <div class="update">
             <div class="title">
                 <p>Update</p>
             </div>
             <div class="input">
-                <input type="text" id="category" placeholder="Category">
-                <input type="text" id="title" placeholder="Title">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Content"></textarea>
+                <input type="text" id="category" class="category1" placeholder="Category">
+                <input type="text" id="title" placeholder="Title" class="title1">
+                <textarea name="" id="content" cols="30" rows="10" placeholder="Content" class="content1"></textarea>
+            </div>
+            <div class="option">
+                <input id="todo-box" class="checkbox" type="checkbox">
+                <label for="todo-box">Todo</label>
+                <input id="doing-box" type="checkbox" class="checkbox">
+                <label for="doing-box">Doing</label>
+                <input id="completed-box" type="checkbox" class="checkbox">
+                <label for="completed-box">Completed</label>
+                <input id="blocked-box" type="checkbox" class="checkbox">
+                <label for="blocked-box">Blocked</label>
             </div>
             <div class="selection">
-                <button id="cancel">Cancel</button>
-                <button id="save">Save</button>
+                <button id="cancel" class="cancelUpdate">Cancel</button>
+                <button id="save" class="update-button">Update</button>
             </div>
         </div>
         <div class="warning">
@@ -321,11 +331,11 @@
                 <p>Do you want delete this task?</p>
             </div>
             <div class="selection">
-                <button id="cancel">Cancel</button>
+                <button id="cancel" class="cancelDelete">Cancel</button>
                 <button id="delete">Delete</button>
             </div>
         </div>
     </div>
-    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
