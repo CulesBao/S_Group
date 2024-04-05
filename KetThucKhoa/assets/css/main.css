@@ -552,6 +552,9 @@ body .popup-container .warning .selection #delete:active {
 body .popup-container .warning .selection #cancel:active {
   box-shadow: 0px 1px 13px 0px #cccccc;
 }
+body .hide {
+  display: none;
+}
 
 @media only screen and (max-width: 1450px) {
   body .todo-container .four-list-center {

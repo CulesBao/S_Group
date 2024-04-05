@@ -44,6 +44,10 @@ let cancelBtnDelete = document.querySelector(".cancelDelete")
 let warningContainer = document.querySelector(".warning")
 let updateBtn = document.querySelector(".update-button")
 
+// //get data from local storage
+if (localStorage.getItem("list"))
+    list = JSON.parse(localStorage.getItem("list"))
+
 
 //Create
 {
@@ -135,6 +139,7 @@ let updateBtn = document.querySelector(".update-button")
 {
     // Định nghĩa mảng allCheckbox chứa tất cả các checkbox
     let allCheckbox = document.querySelectorAll('.checkbox');
+    let newIndexParent, indexparent, indexchild;
 
     //Update
     function onUpdate(indexParent, indexChild){
@@ -154,7 +159,6 @@ let updateBtn = document.querySelector(".update-button")
         document.querySelector(".category1").value = list[indexParent][indexChild].category;
         document.querySelector(".title1").value = list[indexParent][indexChild].title;
         document.querySelector(".content1").value = list[indexParent][indexChild].content;
-        // document.querySelector(".box" + indexParent).setAttribute("check", "true");
 
         // Set checked state of checkboxes based on indexParent
         allCheckbox.forEach(function (item, index) {
@@ -165,11 +169,42 @@ let updateBtn = document.querySelector(".update-button")
             }
         });
 
-        updateBtn.addEventListener("click", function(){
-            updateLogic(indexParent, indexChild)
-        })
-    }
+        // Update checkboxes when clicked
+        allCheckbox.forEach(function (item) {
+            item.addEventListener('change', function () {
+                // Lưu vị trí của checkbox đã được thay đổi trạng thái
+                let checkedIndex = -1;
 
+                // Xác định vị trí của checkbox đã được thay đổi trạng thái
+                allCheckbox.forEach(function (checkbox, idx) {
+                    if (checkbox === item) {
+                        checkedIndex = idx;
+                    }
+                });
+
+                // Nếu không tìm thấy vị trí của checkbox đã được thay đổi trạng thái, thoát khỏi hàm
+                if (checkedIndex === -1) {
+                    return;
+                }
+
+                // Loại bỏ trạng thái checked từ các checkbox khác
+                allCheckbox.forEach(function (checkbox, idx) {
+                    if (idx !== checkedIndex) {
+                        checkbox.checked = false;
+                    }
+                });
+
+                // Cập nhật indexParent hiện tại
+                newIndexParent = checkedIndex;
+            });
+        });
+        indexparent = indexParent
+        indexchild = indexChild
+    }
+    
+    updateBtn.addEventListener("click", function(){
+        updateLogic(indexparent, indexchild, newIndexParent)
+    })
     //Close Create
     popUpContainer.addEventListener('click', function(){
         popUpContainer.style.display = "none";
@@ -185,23 +220,8 @@ let updateBtn = document.querySelector(".update-button")
         event.stopPropagation();
     });
 
-    // Update checkboxes when clicked
-    allCheckbox.forEach(function (item) {
-        item.addEventListener('change', function () {
-            var temp = this;
-            if (this.checked) {
-                allCheckbox.forEach(function (itemm) {
-                    if (itemm !== temp) {
-                        itemm.checked = false;
-                    }
-                    // else itemm.checked = true;
-                });
-            }
-        });
-    });
-
     //Logic
-    function updateLogic(indexParent, indexChild){
+    function updateLogic(indexParent, indexChild, newIndexParent){
         const date = new Date()
         let categoryValue = document.querySelector(".category1").value;
         let titleValue = document.querySelector(".title1").value;
@@ -217,35 +237,35 @@ let updateBtn = document.querySelector(".update-button")
                 reject();
         })
         myPromise.then(() => {
-            let newIndexParent;
-
             list[indexParent][indexChild].category = categoryValue
             list[indexParent][indexChild].title = titleValue
             list[indexParent][indexChild].content = contentValue
             list[indexParent][indexChild].dateTime = currentDate
 
-            //Tim vi tri checkbox
-            allCheckbox.forEach(function(item, index){
-                if (item.checked){
-                    newIndexParent = index
-                }
-            })
-
+            //set lai gia tri t f
             if (newIndexParent !== indexParent){
                 let tmp = list[indexParent][indexChild]
                 list[indexParent].splice(indexChild, 1);
                 list[newIndexParent].push(tmp)
+
+                // allCheckbox.forEach(function (item, index) {
+                //     if (index === newIndexParent) {
+                //         item.checked = true;
+                //     } else {
+                //         item.checked = false;
+                //     }
+                // });
             }
 
             render()
             popUpContainer.style.display = "none";
-            newContainer.style.display = "none"
+            updateContainer.style.display = "none"
 
         })
         .catch(() => {
-            let category = document.getElementById("category")
-            let title = document.getElementById("title")
-            let content = document.getElementById("content")
+            let category = document.querySelector(".category1")
+            let title = document.querySelector(".title1")
+            let content = document.querySelector(".content1")
 
             if (categoryValue === "")
                 category.style.border = "1px solid #e74c3c"
@@ -302,7 +322,15 @@ let updateBtn = document.querySelector(".update-button")
     
 }
 
+//Drag and Drop
+{
+}
+
+
 function render(){
+    //push to local storage
+    localStorage.setItem("list", JSON.stringify(list))
+
     //count
     let countContainer = document.querySelectorAll(".todo")
     for (let i = 0; i < 4; i++)
@@ -314,7 +342,7 @@ function render(){
     {
         let todoContainer = document.getElementById("todo" + i)
         let todoList = list[i].map(function(item){
-        return `<div class="task-content">
+        return `<div class="task-content" draggable = "true" id = "item">
             <div class="icons">
                 <i class="fas fa-pen" onclick="onUpdate(${i}, ${list[i].indexOf(item)}, )"></i>
                 <i class="fas fa-trash" onclick="onDelete(${i}, ${list[i].indexOf(item)})"></i>
