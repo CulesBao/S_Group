@@ -29,6 +29,24 @@ openBtn.addEventListener('click', function(){
 //Xu li logic
 //correct_login@example.com
 //C0rr3Ct_P@55w0rd
+
+let emailInput = document.getElementById('email');
+let passwordInput = document.getElementById('password');
+
+// Xử lý sự kiện nhấn phím Enter trên ô input email
+emailInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        loginLogic()
+    }
+});
+
+// Xử lý sự kiện nhấn phím Enter trên ô input password
+passwordInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        loginLogic() 
+    }
+});
+
 function loginLogic(){
     let emailValue = document.getElementById("email").value
     let passValue = password.value
@@ -61,9 +79,7 @@ function loginLogic(){
         let warning = document.querySelector(".warning")
         if (data.status === "ok"){
             warning.innerText = ""
-            // Container.style.display = "none"
-            // todoContainer.style.display = "flex"
-            window.location.href = "https://culesbao.github.io/S_Group/KetThucKhoa/index.html"
+            window.location.href = "./index.html"
         }
         else{
             warning.innerText = "*Incorrect account or password"
