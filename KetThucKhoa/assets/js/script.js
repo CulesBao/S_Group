@@ -93,7 +93,11 @@ if (localStorage.getItem("list"))
         let day = date.getDate();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
-        let currentDate = `${day}/${month}/${year}`;
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        hours = (hours < 10) ? '0' + hours : hours;
+        minutes = (minutes < 10) ? '0' + minutes : minutes;
+        let currentDate = hours + ":" + minutes + "  " + `${day}/${month}/${year}`;
         let myPromise = new Promise(function(resolve, reject){
             if (categoryValue !== "" && titleValue !== "" && contentValue !== "")
                 resolve();
@@ -143,6 +147,9 @@ if (localStorage.getItem("list"))
 
     //Update
     function onUpdate(indexParent, indexChild){
+
+        newIndexParent = indexParent
+
         popUpContainer.style.display = "flex";
         updateContainer.style.display = "flex";
         newContainer.style.display = "none";
@@ -179,6 +186,7 @@ if (localStorage.getItem("list"))
                 allCheckbox.forEach(function (checkbox, idx) {
                     if (checkbox === item) {
                         checkedIndex = idx;
+                        newIndexParent = idx
                     }
                 });
 
@@ -193,32 +201,11 @@ if (localStorage.getItem("list"))
                         checkbox.checked = false;
                     }
                 });
-
-                // Cập nhật indexParent hiện tại
-                newIndexParent = checkedIndex;
             });
         });
         indexparent = indexParent
         indexchild = indexChild
     }
-    
-    updateBtn.addEventListener("click", function(){
-        updateLogic(indexparent, indexchild, newIndexParent)
-    })
-    //Close Create
-    popUpContainer.addEventListener('click', function(){
-        popUpContainer.style.display = "none";
-        updateContainer.style.display = "none";
-    });
-    cancelBtnUpdate.addEventListener('click', function(){
-        popUpContainer.style.display = "none";
-        updateContainer.style.display = "none";
-    });
-
-    //Prevent Close Create
-    updateContainer.addEventListener('click', function(event){
-        event.stopPropagation();
-    });
 
     //Logic
     function updateLogic(indexParent, indexChild, newIndexParent){
@@ -229,7 +216,11 @@ if (localStorage.getItem("list"))
         let day = date.getDate();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
-        let currentDate = `${day}/${month}/${year}`;
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        hours = (hours < 10) ? '0' + hours : hours;
+        minutes = (minutes < 10) ? '0' + minutes : minutes;
+        let currentDate = hours + ":" + minutes + "  " + `${day}/${month}/${year}`;
         let myPromise = new Promise(function(resolve, reject){
             if (categoryValue !== "" && titleValue !== "" && contentValue !== "")
                 resolve();
@@ -247,14 +238,6 @@ if (localStorage.getItem("list"))
                 let tmp = list[indexParent][indexChild]
                 list[indexParent].splice(indexChild, 1);
                 list[newIndexParent].push(tmp)
-
-                // allCheckbox.forEach(function (item, index) {
-                //     if (index === newIndexParent) {
-                //         item.checked = true;
-                //     } else {
-                //         item.checked = false;
-                //     }
-                // });
             }
 
             render()
@@ -281,7 +264,25 @@ if (localStorage.getItem("list"))
                 content.style.border = "1px solid #69ce7e"
         })
     }
+    
+    updateBtn.addEventListener("click", function(){
+        console.log(indexparent, indexchild, newIndexParent)
+        updateLogic(indexparent, indexchild, newIndexParent)
+    })
+    //Close Create
+    popUpContainer.addEventListener('click', function(){
+        popUpContainer.style.display = "none";
+        updateContainer.style.display = "none";
+    });
+    cancelBtnUpdate.addEventListener('click', function(){
+        popUpContainer.style.display = "none";
+        updateContainer.style.display = "none";
+    });
 
+    //Prevent Close Create
+    updateContainer.addEventListener('click', function(event){
+        event.stopPropagation();
+    });
 }
 
 //Delete
@@ -322,11 +323,6 @@ if (localStorage.getItem("list"))
     
 }
 
-//Drag and Drop
-{
-}
-
-
 function render(){
     //push to local storage
     localStorage.setItem("list", JSON.stringify(list))
@@ -342,7 +338,7 @@ function render(){
     {
         let todoContainer = document.getElementById("todo" + i)
         let todoList = list[i].map(function(item){
-        return `<div class="task-content" draggable = "true" id = "item">
+        return `<div class="task-content" draggable="true" id = "item">
             <div class="icons">
                 <i class="fas fa-pen" onclick="onUpdate(${i}, ${list[i].indexOf(item)}, )"></i>
                 <i class="fas fa-trash" onclick="onDelete(${i}, ${list[i].indexOf(item)})"></i>

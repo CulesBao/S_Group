@@ -363,6 +363,10 @@ body .todo-container .four-list-center .parent .todo .task-container .task-conte
 body .todo-container .four-list-center .parent .todo .task-container .task-content .icons .fa-trash {
   gap: 5px;
 }
+body .todo-container .four-list-center .parent .todo .task-container .task-content .category, body .todo-container .four-list-center .parent .todo .task-container .task-content .title, body .todo-container .four-list-center .parent .todo .task-container .task-content .content {
+  overflow: hidden;
+  word-wrap: break-word;
+}
 body .todo-container .four-list-center .parent .todo .task-container .task-content .category {
   width: fit-content;
   font-size: 14px;
