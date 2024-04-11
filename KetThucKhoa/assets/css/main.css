@@ -559,6 +559,9 @@ body .popup-container .warning .selection #cancel:active {
 body .hide {
   display: none;
 }
+body .dragging {
+  opacity: 1 !important;
+}
 
 @media only screen and (max-width: 1450px) {
   body .todo-container .four-list-center {

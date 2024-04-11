@@ -42,6 +42,7 @@ let saveBtn = document.getElementById("save")
 let cancelBtnUpdate = document.querySelector(".cancelUpdate")
 let cancelBtnDelete = document.querySelector(".cancelDelete")
 let warningContainer = document.querySelector(".warning")
+let deleteBtn = document.getElementById("delete")
 let updateBtn = document.querySelector(".update-button")
 
 // //get data from local storage
@@ -86,10 +87,10 @@ if (localStorage.getItem("list"))
     })
     //Logic
     saveBtn.addEventListener("click", function(){
-        const date = new Date()
         let categoryValue = document.getElementById("category").value
         let titleValue = document.getElementById("title").value
         let contentValue = document.getElementById("content").value;
+        const date = new Date()
         let day = date.getDate();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
@@ -266,7 +267,6 @@ if (localStorage.getItem("list"))
     }
     
     updateBtn.addEventListener("click", function(){
-        console.log(indexparent, indexchild, newIndexParent)
         updateLogic(indexparent, indexchild, newIndexParent)
     })
     //Close Create
@@ -287,19 +287,21 @@ if (localStorage.getItem("list"))
 
 //Delete
 {
+    let indexparent, indexchild;
     function onDelete(indexParent, indexChild)
     {   
-        let deleteBtn = document.getElementById("delete")
-
         popUpContainer.style.display = "flex";
         warningContainer.style.display = "flex"
         newContainer.style.display = "none"
         updateContainer.style.display = "none"
 
-        deleteBtn.addEventListener("click", () =>{
-            deleteList(indexParent, indexChild)
-        })
+        indexparent = indexParent;
+        indexchild = indexChild
     }
+
+    deleteBtn.addEventListener("click", () =>{
+        deleteList(indexparent, indexchild)
+    })
 
     //Close
     cancelBtnDelete.addEventListener("click", function(){
@@ -322,6 +324,7 @@ if (localStorage.getItem("list"))
     }
     
 }
+
 
 function render(){
     //push to local storage
@@ -363,5 +366,67 @@ function render(){
         })
         todoContainer.innerHTML = todoList.join("")
     }
+    document.dispatchEvent(renderEvent);
 }
-render()
+
+
+const renderEvent = new Event('renderUpdated');
+let taskContents = document.querySelectorAll('.task-content');
+let taskContainers = document.querySelectorAll('.task-container')
+let oldDragIndexChild, oldDragIndexParent, newIndexParent;
+
+// drag drop
+
+    document.addEventListener('renderUpdated', function() { 
+        taskContents = document.querySelectorAll('.task-content');
+        taskContainers = document.querySelectorAll('.task-container');
+        taskContents.forEach((taskContent, index) => {
+            taskContent.addEventListener('dragstart', () => {
+                taskContent.classList.add('dragging');
+                oldDragIndexChild = index;
+                let count = 0;
+                while (oldDragIndexChild > list[count].length - 1){
+                    oldDragIndexChild -= list[count].length;
+                    count++;
+                }
+                oldDragIndexParent = Number(taskContent.parentElement.id.slice(4));
+                console.log(oldDragIndexParent, oldDragIndexChild);
+            });
+            taskContent.addEventListener('dragend', () => {
+                taskContent.classList.remove('dragging');
+            });
+        });
+    });
+    
+    render()
+
+        taskContainers.forEach((taskContainer, index) => {
+            taskContainer.addEventListener('dragover', e => {
+                e.preventDefault();
+            });
+            taskContainer.addEventListener('drop', () => {
+                const taskContent = document.querySelector(".dragging");
+                if (taskContent && taskContent instanceof HTMLElement) {
+            
+                    newIndexParent = index;
+            
+                    const date = new Date()
+                    let day = date.getDate();
+                    let month = date.getMonth() + 1;
+                    let year = date.getFullYear();
+                    let hours = date.getHours();
+                    let minutes = date.getMinutes();
+                    hours = (hours < 10) ? '0' + hours : hours;
+                    minutes = (minutes < 10) ? '0' + minutes : minutes;
+                    let currentDate = hours + ":" + minutes + "  " + `${day}/${month}/${year}`;
+
+                    list[newIndexParent].push(list[oldDragIndexParent][oldDragIndexChild]);
+                    list[newIndexParent][list[newIndexParent].length - 1]["dateTime"] = currentDate;
+                    list[oldDragIndexParent].splice(oldDragIndexChild, 1);         
+                    render();
+                } else {
+                    console.error("Không tìm thấy phần tử đang được kéo hoặc phần tử không hợp lệ.");
+                }
+
+            });
+        });
