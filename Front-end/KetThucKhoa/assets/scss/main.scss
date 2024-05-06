@@ -367,10 +367,11 @@ body {
                             }
                             .category, .title, .content{
                                 overflow: hidden;
-                                word-wrap: break-word;
+                                word-wrap: break-word ;
                             }
                             .category{
                                 width: fit-content;
+                                // max-width: 200px;
                                 font-size: 14px;
                                 font-weight: 600;
                                 color: #4d8eff;

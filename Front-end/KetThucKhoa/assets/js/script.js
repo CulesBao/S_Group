@@ -325,7 +325,6 @@ if (localStorage.getItem("list"))
     
 }
 
-
 function render(){
     //push to local storage
     localStorage.setItem("list", JSON.stringify(list))
@@ -368,7 +367,6 @@ function render(){
     }
     document.dispatchEvent(renderEvent);
 }
-
 
 const renderEvent = new Event('renderUpdated');
 let taskContents = document.querySelectorAll('.task-content');
