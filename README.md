@@ -36,5 +36,5 @@ Phần backend dang hoàn thiện và đang trong quá trình phát triển.
 
 Nếu có bất kỳ thắc mắc hoặc đóng góp, vui lòng liên hệ:
 
-[Your Name](https://github.com/CulesBao)
+[Bảo Cules](https://github.com/CulesBao)
 
