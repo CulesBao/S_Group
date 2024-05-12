@@ -14,10 +14,10 @@ Phần frontend hiện đã hoàn thiện và bao gồm các thành phần sau:
 - **Buổi 1:** Làm quen với HTML.
 - **Buổi 2:** Làm quen với CSS.
 - **Buổi 3:** Chứa nội dung của buổi học thứ 3.
-- **Buổi 4:** Chứa nội dung của buổi học thứ 4.
+- **Buổi 4:** Chứa nội dung của buổi học thứ 4.  
   **...**
 - **Buổi 7:** Làm quen với JavaScript.
-- **Buổi 8:** Tìm hiểu JavaScript (nâng cao)
+- **Buổi 8:** Tìm hiểu JavaScript (nâng cao)  
   **...**
 - **FinalProject:** Bao gồm Landing Page. 
 - **KetThucKhoa:** Bài tập cuối khóa nổi bật.
