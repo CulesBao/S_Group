@@ -26,7 +26,8 @@ Phần frontend hiện đã hoàn thiện và bao gồm các thành phần sau:
 
 Phần backend dang hoàn thiện và đang trong quá trình phát triển.
 - **Buổi 1:** Làm quen với các khái niệm
-- **Buổi 2:** Cài đặt Node.js, npm. Làm quen với Node.js 
+- **Buổi 2:** Cài đặt Node.js, npm. Làm quen với Node.js
+- **Buổi 3:** Cài đặt Postman
 
 ## Giấy phép
 
