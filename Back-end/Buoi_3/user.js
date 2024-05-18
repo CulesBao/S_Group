@@ -1,25 +1,28 @@
 import express from 'express'
 import {v4 as uuidv4} from 'uuid' 
-
+import users from './users.json' assert { type: "json" };
 const routes = express.Router()
 
-const users = [
-    {
-        name: 'AB',
-        phone: '109132',
-        id: '12312'
-    },
-    {
-        name: 'err',
-        phone: '1390123',
-        id: '1221'
-    },
-    {
-        name: 'err',
-        phone: '1390123',
-        id: '1211'
+//Cap nhat nguoi dung
+routes.put('/:id', (req, res) =>{
+    const idGet = req.params.id
+    const {name, phone, id} = req.body
+    
+    const index = users.findIndex((user) => user.id == idGet)
+
+    if (index == -1)
+        res.send(index)
+    else{
+        if (name)
+            users[index].name = name;
+        if (phone)
+            users[index].phone = phone
+        if (id)
+            users[index].id = id
+
+        res.send(`${users[index].name} has been update`)
     }
-]
+})
 
 //Tim nguoi dung dua tren id
 routes.get('/:id', function(req, res){
@@ -34,7 +37,8 @@ routes.delete('/:id', (req, res) =>{
     var {id} = req.params
     var index = users.findIndex((user) => user.id === id)
 
-    var deleteUser = users.splice(index, 1)
+    var deleteUser = users[index]
+    users.splice(index, 1)
 
     res.send(`${deleteUser.name} has been delete!`)
 })
