@@ -28,6 +28,8 @@ Phần backend dang hoàn thiện và đang trong quá trình phát triển.
 - **Buổi 1:** Làm quen với các khái niệm
 - **Buổi 2:** Cài đặt Node.js, npm. Làm quen với Node.js
 - **Buổi 3:** Cài đặt Postman
+- **Buổi 4:** Tạo một crud đơn giản
+- **Buổi 5:** Tạo một validation đơn giản
 
 ## Giấy phép
 
