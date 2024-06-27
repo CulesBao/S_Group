@@ -5,7 +5,7 @@ const conn = mysql.createConnection({
     user: 'root',
     password: 'Chibao1709@',
     database: 'S_usermnmt'
-}).promise()
+})
 
 //Tim loi ket noi
 conn.connect( (err) =>{

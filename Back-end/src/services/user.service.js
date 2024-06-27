@@ -18,7 +18,6 @@ const getAllUsers = async() => {
 
 const getUserByID = async(id) => {
     try{
-        console.log('Fetching user with ID:', id);
         let [user] = await database.query(`SELECT * FROM users WHERE id = ?`, [id])
         if (user.length > 0) {
             return user[0];
@@ -34,7 +33,13 @@ const getUserByID = async(id) => {
 
 const createUser = async(user) => {
     try{
-        await database.query(`INSERT INTO users(username, email, password, fullname) VALUES (?, ?, ?, ?)`, [user.username, user.email, user.password, user.fullname]);
+        let [user] = await database.query(`SELECT * FROM users WHERE username = ? AND email = ?`, [user.username, user.email])
+        if (user.length > 0){
+            console.log("User already exists")
+            res.status(400).send("User already exists")
+        }
+        database.query(`INSERT INTO users (id, username, email, password, fullname) VALUES (?, ?, ?, ?, ?)`, [user.id, user.username, user.email, user.password, user.fullname])
+        return
     }
     catch(err){
         console.log(err)
