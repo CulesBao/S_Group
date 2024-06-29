@@ -1,4 +1,5 @@
 import database from '../config/db.js'
+import jwt from 'jsonwebtoken'
 import bcrypt, {genSalt} from 'bcrypt'
 
 const register = async(user) => {
@@ -28,7 +29,9 @@ const login = async(user) => {
         if (password && await bcrypt.compare(user.password, password)){
             console.log('Dang nhap thanh cong')
             console.log(user)
-            return true
+            const token = await createToken(user)
+            console.log(token)
+            return token
         }
         else{
             console.log('Dang nhap that bai')
@@ -39,6 +42,14 @@ const login = async(user) => {
         console.log("Loi o service", err)
         return false
     }
+}
+
+function createToken(user) {
+    return jwt.sign({
+        username: user.username,
+        email: user.email,
+        password: user.password
+    }, 'secret', {expiresIn: '1h'})
 }
 
 export default {register, login}

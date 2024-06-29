@@ -19,7 +19,7 @@ const login = async(req, res) => {
         let user = req.body
         let login = await authService.login(user)
         if (login)
-            res.status(200).json(login)
+            res.status(200).json('Dang nhap thanh cong')
         else
             res.status(400).json("Sai tk hoac mk")
     }
