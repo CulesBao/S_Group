@@ -25,7 +25,7 @@ const register = async(user) => {
 const login = async(user) => {
     try{
         const [rows] = await database.query(`SELECT password FROM users WHERE username = ?`, [user.username]);
-        const password = rows[0]?.password;
+        const password = rows[0]?.password
         if (password && await bcrypt.compare(user.password, password)){
             console.log('Dang nhap thanh cong')
             console.log(user)
