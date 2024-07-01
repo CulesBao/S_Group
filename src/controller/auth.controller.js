@@ -1,9 +1,10 @@
-import authService from './../services/auth.service.js'
+import authService from '../services/auth.service.js'
 
 const register = async (req, res) => {
     try{
         let user = req.body
         let register = await authService.register(user)
+        console.log(register)
         if (register == true)
             res.status(201).json(register)
         else
