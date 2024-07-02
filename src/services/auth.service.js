@@ -1,6 +1,8 @@
 import database from '../config/db.js'
 import jwt from 'jsonwebtoken'
 import bcrypt, {genSalt} from 'bcrypt'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const register = async(user) => {
     try{
@@ -49,7 +51,7 @@ function createToken(user) {
         username: user.username,
         email: user.email,
         password: user.password
-    }, 'secret', {expiresIn: '1h'})
+    }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1m'})
 }
 
 export default {register, login}
