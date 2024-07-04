@@ -23,4 +23,21 @@ async function testConnection() {
 
 testConnection();
 
-export default pool;
+const saveOTP = async (email, otp, time) => {
+    const connection = await pool.getConnection();
+    try {
+        const findOne = await connection.query(`SELECT * FROM otp WHERE email = ?`, [email]);
+        if (findOne[0].length === 0) {
+            await connection.query(`INSERT INTO otp(email, otp, EXP) VALUES (?, ?, ?)`, [email, otp, time]);
+        } else {
+            await connection.query(`UPDATE otp SET otp = ?, EXP = ? WHERE email = ?`, [otp, time, email]);
+        }
+        console.log('Replace OTP:', otp);
+    } catch (error) {
+        console.error('Error inserting OTP:', error);
+    } finally {
+        connection.release();
+    }
+}
+
+export default {pool, saveOTP};
