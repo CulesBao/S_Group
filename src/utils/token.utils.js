@@ -6,7 +6,7 @@ function createToken(user) {
     return jwt.sign({
         username: user.username,
         email: user.email
-    }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30m'})
+    }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '3m'})
 }
 
 export default {createToken}

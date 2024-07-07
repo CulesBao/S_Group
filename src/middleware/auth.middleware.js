@@ -1,4 +1,4 @@
-import e from 'express';
+import jwt from 'jsonwebtoken';
 import db from '../config/db.js';
 var nameRegex = /^[a-zA-Z0-9\-]+$/;
 var passwordRegex = /^[a-zA-Z0-9\-\_]+$/;
@@ -54,4 +54,18 @@ const checkOTP = async (email, otp) => {
     }
 }
 
-export default {validation, randomNum, checkOTP};
+function authenToken(req, res, next){
+    const authorizationHeader = req.headers['authorization']
+    const token = authorizationHeader && authorizationHeader.split(' ')[1]
+    console.log('Token:', token)
+    if (!token)
+        return res.status(401).send('Access denied, there is no token')
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err)
+            return res.status(403).send('Invalid token. Invalid user')
+        req.user = user
+        next()
+    })
+}
+
+export default {validation, randomNum, checkOTP, authenToken};
