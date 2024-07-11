@@ -24,14 +24,15 @@ const register = async(user) => {
 
 const login = async(user) => {
     try{
-        const [rows] = await database.pool.query(`SELECT password FROM users WHERE username = ?`, [user.username]);
+        const [rows] = await database.pool.query(`SELECT id, password FROM users WHERE username = ?`, [user.username]);
         const password = rows[0]?.password
+        const id = rows[0]?.id
         if (password && await hashUtils.comparePassword(user.password, password)){
             console.log('Dang nhap thanh cong')
             console.log(user)
             const token = await tokenUtils.createToken(user)
             console.log(token)
-            return token
+            return token + " " + id
         }
         else{
             console.log('Dang nhap that bai')

@@ -55,6 +55,12 @@ const checkOTP = async (email, otp) => {
 }
 
 function authenToken(req, res, next){
+    fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        })
     const authorizationHeader = req.headers['authorization']
     const token = authorizationHeader && authorizationHeader.split(' ')[1]
     console.log('Token:', token)
