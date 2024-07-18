@@ -18,6 +18,5 @@ var upload = multer({ storage: storage })
 
 router.post('/upload-single-file', authMiddleware.authenToken, upload.single('file'), uploadsMiddleware.uploadSingle);
 router.post('/upload-multiple-files', authMiddleware.authenToken, upload.array('files', 10), uploadsMiddleware.uploadMultiple);
-router.get('/download-file/:name', uploadsMiddleware.downloadFile);
 
 export default router;

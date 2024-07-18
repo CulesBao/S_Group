@@ -63,8 +63,9 @@ let lockStatus = async(id) => {
 const createPoll = async (req, res, next) => {
     try{
         const object = req.body;
+        console.log(object, !object.title)
 
-        if (object.title == null) {
+        if (!object.title) {
             return res.status(400).send('There was no poll in the request');
         }
         if (!(object.isLock == true || object.isLock == false)) {
