@@ -39,7 +39,7 @@ jobs:
   # Job 2: Len ec2 deploy
   deploy:
     needs: build_and_test
-    runs_on: ubuntu_latest
+    runs-on: ubuntu_latest
 
     steps:
       # Dang nhap vao docker va pull image ve va run
