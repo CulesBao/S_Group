@@ -57,6 +57,12 @@ jobs:
             -e DB_PORT=3306 \
             -e DB_USER=${{ secrets.DB_USERNAME }} \
             -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+            -e DB_DATABASE=${{ secrets.DB_DATABASE }} \
+            -e ACCESS_TOKEN_SECRET=${{ secrets.ACCESS_TOKEN_SECRET }} \
+            -e SMTP_HOST=${{ secrets.SMTP_HOST }} \
+            -e SMTP_PORT=${{ secrets.SMTP_PORT }} \
+            -e SMTP_USER=${{ secrets.SMTP_USER }} \
+            -e SMTP_PASS=${{ secrets.SMTP_PASS }} \
             ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
           EOF
         env:
