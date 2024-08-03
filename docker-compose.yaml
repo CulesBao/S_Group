@@ -1,0 +1,33 @@
+version: '3'
+services:
+    db: 
+      image: mysql:8.0
+      restart: always
+      environment: 
+        - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        - MYSQL_ROOT_DATABASE=${DB_DATABASE}
+      ports:
+        - "3307:3306"
+      expose:
+        - 3306
+
+    s-group-app:
+      depends_on:
+        - db
+      image: baocules/s-group-app:latest
+      restart: always
+      environment:
+        - DB_HOST=db
+        - DB_PORT=3306
+        - DB_USER=root
+        - DB_PASSWORD=${DB_PASSWORD}
+        - DB_DATABASE=${DB_DATABASE}
+        - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
+        - SMTP_HOST=${SMTP_HOST}
+        - SMTP_PORT=${SMTP_PORT}
+        - SMTP_USER=${SMTP_USER}
+        - SMTP_PASS=${SMTP_PASS}
+      evn_file:
+        - .env
+      ports:
+        - "3000:3000"

@@ -1,0 +1,69 @@
+name: CI/CD pipeline
+
+# Khi xảy ra sự kiện pull request vào nhánh develop -> thực hiện
+on:
+  push:
+    branches:
+      - feature/votes
+
+jobs:
+  # Job 1: Build và test trên máy ảo Ubuntu
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      # Sử dụng action để checkout code từ repo vào máy ảo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Login Docker Hub
+      - name: Login Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Build và test image được build ra bởi Docker
+      - name: Build and test image by Docker
+        run: |
+          sudo docker build -t s-group-app .
+          sudo docker run s-group-app npm test
+
+      # Push image to Docker Hub
+      - name: Push image to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
+
+  # Job 2: Deploy lên EC2
+  deploy:
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to server
+        run: |
+          echo "$SSH_PRIVATE_KEY" > /tmp/id_rsa
+          chmod 600 /tmp/id_rsa
+          ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} << 'EOF'
+          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
+          sudo docker stop ubuntu-s-group-app-1 || true
+          sudo docker rm ubuntu-s-group-app-1 || true
+          sudo docker run -d -p 3000:3000 --name ubuntu-s-group-app-1 --network ubuntu_default \
+            -e DB_HOST=db \
+            -e DB_PORT=3306 \
+            -e DB_USER=${{ secrets.DB_USERNAME }} \
+            -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+            -e DB_DATABASE=${{ secrets.DB_DATABASE }} \
+            -e ACCESS_TOKEN_SECRET=${{ secrets.ACCESS_TOKEN_SECRET }} \
+            -e SMTP_HOST=${{ secrets.SMTP_HOST }} \
+            -e SMTP_PORT=${{ secrets.SMTP_PORT }} \
+            -e SMTP_USER=${{ secrets.SMTP_USER }} \
+            -e SMTP_PASS=${{ secrets.SMTP_PASS }} \
+            ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
+          EOF
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
