@@ -2,9 +2,9 @@ name: CI/CD pipeline
 
 # Khi xảy ra sự kiện pull request vào nhánh develop -> thực hiện
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - feature/votes
 
 jobs:
   # Job 1: Build và test trên máy ảo Ubuntu
@@ -49,10 +49,10 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > /tmp/id_rsa
           chmod 600 /tmp/id_rsa
           ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} << 'EOF'
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
-            sudo docker stop ubuntu-s-group-app-1 || true
-            sudo docker rm ubuntu-s-group-app-1 || true
-            sudo docker run -d -p 3000:3000 --name ubuntu-s-group-app-1 --network ubuntu_default \
+          sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
+          sudo docker stop ubuntu-s-group-app-1 || true
+          sudo docker rm ubuntu-s-group-app-1 || true
+          sudo docker run -d -p 3000:3000 --name ubuntu-s-group-app-1 --network ubuntu_default \
             -e DB_HOST=db \
             -e DB_PORT=3306 \
             -e DB_USER=${{ secrets.DB_USERNAME }} \
