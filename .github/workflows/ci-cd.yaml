@@ -26,7 +26,7 @@ jobs:
       - name: Build and test image by Docker
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest .
-          docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest npm test
+          docker run ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest npm test
 
       # Push image to Docker Hub
       - name: Push image to Docker Hub
