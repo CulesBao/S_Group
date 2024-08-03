@@ -3,8 +3,8 @@ name: CI/CD pipeline
 # Khi xảy ra sự kiện pull request vào nhánh develop -> thực hiện
 on:
   pull_request:
-    push:
-      - feature/votes
+    branches:
+      - main
 
 jobs:
   # Job 1: Build và test trên máy ảo Ubuntu
