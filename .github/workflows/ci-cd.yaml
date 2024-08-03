@@ -52,7 +52,10 @@ jobs:
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
             sudo docker stop ubuntu-s-group-app-1 || true
             sudo docker rm ubuntu-s-group-app-1 || true
-            sudo docker run -d -p 3000:3000 --name ubuntu-s-group-app-1 ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
+            sudo docker run -d -p 3000:3000 --name ubuntu-s-group-app-1 --network ubuntu_default \
+            -e DB_HOST=db \
+            -e DB_PORT=3306 \
+            ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
           EOF
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
