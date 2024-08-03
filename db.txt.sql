@@ -1,3 +1,5 @@
+CREATE DATABASE users;
+USE users;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL UNIQUE,
@@ -9,7 +11,7 @@ CREATE TABLE otp(
 	email varchar(100) not null,
     otp varchar(10) not null unique,
     EXP datetime
-);
+);  
 
 CREATE table polls (
 	id INT auto_increment,
