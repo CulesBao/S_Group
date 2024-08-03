@@ -4,7 +4,7 @@ name: CI/CD pipeline
 on:
   push:
     branches:
-      - feature/votes
+      - main
 
 jobs:
   # Job 1: Build và test trên máy ảo Ubuntu
