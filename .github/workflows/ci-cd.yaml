@@ -46,7 +46,9 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} << 'EOF'
+          echo "$SSH_PRIVATE_KEY" > /tmp/id_rsa
+          chmod 600 /tmp/id_rsa
+          ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} << 'EOF'
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/s-group-app:latest
             sudo docker stop ubuntu-s-group-app-1 || true
             sudo docker rm ubuntu-s-group-app-1 || true
