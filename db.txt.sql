@@ -15,7 +15,7 @@ CREATE table polls (
 	id INT auto_increment,
     title varchar(100),
     userId INT,
-    createdAt varchar(100),	
+    createAt varchar(100),	
     isLock boolean,
     primary key( id ),
     Foreign key( userId ) references users( id ) 
@@ -24,7 +24,7 @@ CREATE table polls (
 CREATE TABLE `option` (
     id INT auto_increment primary key,
     title VARCHAR(100),
-    createdAt VARCHAR(100),
+    createAt VARCHAR(100),
     pollId INT,
     FOREIGN KEY (pollId) REFERENCES polls(id)
 );
