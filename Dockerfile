@@ -13,7 +13,7 @@ WORKDIR /sgroup
 # copy source code -> /sgroup tren container
 COPY . /sgroup/
 
-# chon cong de xuat img
+
 EXPOSE 3000
 
 # chay cmd de run app
