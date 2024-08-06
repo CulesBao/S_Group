@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', router);
 
-app.listen(3000 , () => {
+app.listen(8000 , () => {
     console.log(`Server is running on http://localhost:3000`);
 })
 
