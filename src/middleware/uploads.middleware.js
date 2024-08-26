@@ -1,10 +1,3 @@
-const downloadFile = (req, res) => {
-    let file = req.params.name;
-    if (!file) {
-        return res.status(400).send('Please provide a file name!');
-    }
-    res.status(200).json({ message: `Download file ${file} successfully!` });
-}
 const uploadSingle = async (req, res, next) => {
     const file = req.file
     if (!file) {
@@ -12,7 +5,7 @@ const uploadSingle = async (req, res, next) => {
         error.httpStatusCode = 400
         return next(error)
     }
-    res.send(file)
+    next()
 };
 
 const uploadMultiple = async (req, res, next) => {
@@ -22,7 +15,17 @@ const uploadMultiple = async (req, res, next) => {
         error.httpStatusCode = 400
         return next(error)
     }
-    res.send(files)
+    next()
 }
 
-export default {downloadFile, uploadSingle, uploadMultiple};
+function authenToken(req, res, next){
+    const authorizationHeader = req.headers['authorization']
+    const token = authorizationHeader && authorizationHeader.split(' ')[1]
+    if (!token)
+        return res.status(401).send({
+            message: 'No token provided'
+        })
+    next()
+}
+
+export default {uploadSingle, uploadMultiple, authenToken};

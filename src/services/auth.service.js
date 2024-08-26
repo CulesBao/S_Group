@@ -39,6 +39,7 @@ const login = async(user) => {
         const [rows] = await database.pool.query(`SELECT * FROM users WHERE username = ?`, [user.username]);
         const password = rows[0]?.password
         const id = rows[0]?.id
+        let user = rows[0]
 
         if (password && await hashUtils.comparePassword(user.password, password)){
             const token = tokenUtils.createToken(user)

@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import db from '../config/db.js';
 import regexUtils from '../utils/regex.utils.js';
 
@@ -42,30 +41,6 @@ const checkOTP = async (req, res, next) => {
     }
 }
 
-function authenToken(req, res, next){
-    fetch('http://localhost:3000/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-        })
-    const authorizationHeader = req.headers['authorization']
-    const token = authorizationHeader && authorizationHeader.split(' ')[1]
-    console.log('Token:', token)
-    if (!token)
-        return res.status(401).send({
-            message: 'No token provided'
-        })
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err)
-            return res.status(403).send({
-                message: 'Invalid token'
-            })
-        req.user = user
-        next()
-    })
-}
-
 const isThereExistedEmail = async(req, res, next) => {
     try{
         const email = req.body.email
@@ -87,4 +62,4 @@ const isThereExistedEmail = async(req, res, next) => {
     }
 }
 
-export default {validation, checkOTP, authenToken, isThereExistedEmail};
+export default {validation, checkOTP, isThereExistedEmail};
