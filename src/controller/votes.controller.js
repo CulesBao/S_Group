@@ -3,124 +3,112 @@ import votesService from '../services/votes.service.js';
 const createPoll = async (req, res) => {
     try{
         const obj = req.body;
-        const boolean = await votesService.createPoll(obj)
-        if (boolean){
-            console.log("Tao poll thanh cong")
-            res.status(200).json("Create poll completed!")
-        }
-        else{
-            console.log('Tao poll that bai');
-            res.status(400).json("Failed to create poll")
-        }
-        return
+        const response = await votesService.createPoll(obj)
+        let {status, ...message} = response
+
+        res.status(status).json(message)
     }
     catch(err){
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 
 const deletePoll = async(req, res) => {
     try{
         const id = req.params.id
+        const response = await votesService.deletePoll(id)
+        let {status, ...message} = response
 
-        if (await votesService.deletePoll(id))
-            res.status(200).json("Poll with ID " + id + " has been deleted!")
-        else
-            res.status(400).json("Cannot delete this poll")
-        return
+        res.status(status).json(message)
     }
     catch(err){
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 
 const createOption = async(req, res) => {
     try{
         const obj = req.body
-        const boolean = await votesService.createOption(obj)
+        const response = await votesService.createOption(obj)
+        let {status, ...message} = response
 
-        if (boolean){
-            console.log("Tao option thanh cong")
-            res.status(200).json("Create option completed!")
-        }
-        else{
-            console.log('Tao option that bai');
-            res.status(400).json("Failed to create option")
-        }
-        return
+        res.status(status).json(message)
     }
     catch(err){
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 
 const vote = async (req, res) => {
     try{
         const obj = req.body
-        const boolean = await votesService.vote(obj)
+        const response = await votesService.vote(obj)
+        let {status, ...message} = response
 
-        if (boolean){
-            console.log("Vote thanh cong")
-            res.status(200).json("Vote completed!")
-        }
-        else{
-            console.log('Vote that bai');
-            res.status(400).json("Failed to vote")
-        }
-        return
+        res.status(status).json(message)
     }
     catch(err){
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 
 const unVote = async(req, res) => {
     try{
         const obj = req.body
+        const response = await votesService.unVote(obj)
+        let {status, ...message} = response
 
-        if (! await votesService.unVote(obj))
-            return res.status(400).json("Error when unvoted")
-        else
-            return res.status(200).json("Unvoted Completed!")
+        res.status(status).json(message)
     }
     catch(err){
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 
 const getVote = async(req, res) => {
     try{
         const id = req.params.id
-        const output = await votesService.getVote(id)
+        const response = await votesService.getVote(id)
+        let {status, ...message} = response
 
-        if (!output){
-            res.status(400).json("Cannot get votes")
-        }
-        res.status(200).json(output)
-
-        return
+        res.status(status).json(message)
     }
-    catch(err) {
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+    catch(err){
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 
 const isLock = async(req, res) => {
     try{
         let obj = req.body
+        const response = await votesService.isLock(obj)
+        let {status, ...message} = response
 
-        await votesService.isLock(obj)
-        res.status(200).json("Set " + obj.isLock + " for poll where pollId = " + obj.pollId)
+        res.status(status).json(message)
     }
-    catch(err) {
-        console.log("Loi o controller: ", err)
-        res.status(400).json("Error in controller: ", err)
+    catch(err){
+        return {
+            status: 500,
+            message: "Internal server error"
+        }
     }
 }
 

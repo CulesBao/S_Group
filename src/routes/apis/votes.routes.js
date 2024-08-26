@@ -1,6 +1,6 @@
 import express from 'express'
-import votesMiddleware from '../middleware/votes.middleware.js'
-import votesController from '../controller/votes.controller.js'
+import votesMiddleware from '../../middleware/votes.middleware.js'
+import votesController from '../../controller/votes.controller.js'
 
 const router = express.Router()
 

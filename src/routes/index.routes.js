@@ -1,6 +1,6 @@
 import userRouter from './apis/auth.routes.js';
 import uploadRouter from './apis/uploads.routes.js';
-import votesRouter from './votes.routes.js';
+import votesRouter from './apis/votes.routes.js';
 import express from 'express';
 
 const router = express.Router();
