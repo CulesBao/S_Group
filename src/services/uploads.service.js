@@ -16,7 +16,6 @@ const decodeToken = async (token) => {
                 resolve(decoded);
             });
         });
-        console.log(decoded)
         const [findOne] = await database.pool.query(`SELECT * FROM users WHERE id = ?`, [decoded.id]);
         if (findOne.length == 0)
             return {

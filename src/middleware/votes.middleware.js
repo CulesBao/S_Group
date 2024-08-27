@@ -82,12 +82,12 @@ const vote = async(req, res, next) => {
     try{
         let voteInfo = req.body
 
-        let pollId = await database.pool.query('SELECT pollId FROM `option` WHERE id = ?', [voteInfo.optionId])
-        if (!pollId[0][0])
+        let [pollId] = await database.pool.query('SELECT pollId FROM `option` WHERE id = ?', [voteInfo.optionId])
+        if (!pollId[0])
             return res.status(400).json({
                 message: "OptionId is not valid"
             })
-        if (!await votesUtils.lockStatus(pollId[0][0].pollId))
+        if (!await votesUtils.lockStatus(pollId[0].pollId))
             return res.status(400).json({
                 message: "Poll is locked!"
             })
@@ -112,18 +112,18 @@ const vote = async(req, res, next) => {
 const unVote = async(req, res, next) =>{
     try{
         const unVoteInfo = req.body
-        let pollId = await database.pool.query('SELECT pollId FROM `option` WHERE id = ?', [unVoteInfo.optionId])
-        if (!pollId[0][0])
+        let [pollId] = await database.pool.query('SELECT pollId FROM `option` WHERE id = ?', [unVoteInfo.optionId])
+        if (!pollId[0])
             return res.status(400).json({
                 message: "OptionId is not valid"
             })
-        if (!await votesUtils.lockStatus(pollId[0][0].pollId))
+        if (!await votesUtils.lockStatus(pollId[0].pollId))
             return res.status(400).json({
                 message: "Poll is locked!"
             })  
 
-        let voted = await database.pool.query(`SELECT * FROM user_options WHERE userId = ? AND optionId = ?`, [unVoteInfo.userId, unVoteInfo.optionId])
-        if (voted[0].length == 0){
+        let [voted] = await database.pool.query(`SELECT * FROM user_options WHERE userId = ? AND optionId = ?`, [unVoteInfo.userId, unVoteInfo.optionId])
+        if (voted.length == 0){
             return res.status(400).json({
                 message: "UserId is not valid"
             })
@@ -159,15 +159,11 @@ const lockStatus = async(req, res, next) => {
     try{
         let lockStatusInfo = req.body
         let [poll] = await database.pool.query(`SELECT * FROM polls WHERE userId = ? AND id = ?`, [lockStatusInfo.userId, lockStatusInfo.pollId]);
-        console.log(poll[0] == undefined)
-        console.log(poll[0])
         if (poll[0] == undefined)
             return res.status(400).json({
                 message: "Wrong userId or pollId"
             })
-        console.log("next11111111111")
         next()
-        console.log("next")
     }
     catch(err){
         return res.status(500).json({
