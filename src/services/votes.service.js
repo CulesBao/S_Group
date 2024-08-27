@@ -1,11 +1,11 @@
 import db from '../config/db.js'
 import timeUtils from '../utils/time.utils.js'
 
-const createPoll = async(obj) => {
+const createPoll = async(pollInfo) => {
     try{
         const createAt = await timeUtils.time();
-        await db.pool.query(`INSERT INTO polls(title, userId, createAt, isLock) VALUES (?, ?, ?, ?)`, [obj.title, obj.userId, createAt, obj.isLock])
-        let pollId = await db.pool.query('SELECT id FROM polls WHERE title = ? AND userId = ? AND createAt = ? AND isLock = ?', [obj.title, obj.userId, createAt, obj.isLock])
+        await db.pool.query(`INSERT INTO polls(title, userId, createAt, isLock) VALUES (?, ?, ?, ?)`, [pollInfo.title, pollInfo.userId, createAt, pollInfo.isLock])
+        let pollId = await db.pool.query('SELECT id FROM polls WHERE title = ? AND userId = ? AND createAt = ? AND isLock = ?', [pollInfo.title, pollInfo.userId, createAt, pollInfo.isLock])
         return {
             status: 200,
             message: "Create poll success!",
@@ -40,11 +40,11 @@ const deletePoll = async(id) => {
 }
 
 //Obj: pollId, title array, 
-const createOption = async (obj) => {
+const createOption = async (optionInfo) => {
     try{
         const createAt = await timeUtils.time()
-        await db.pool.query('INSERT INTO `option` (title, createAt, pollId) VALUES (?, ?, ?)', [obj.title, createAt, obj.pollId])
-        let optionId = await db.pool.query('SELECT id FROM `option` WHERE title = ? AND pollId = ?', [obj.title, obj.pollId])
+        await db.pool.query('INSERT INTO `option` (title, createAt, pollId) VALUES (?, ?, ?)', [optionInfo.title, createAt, optionInfo.pollId])
+        let optionId = await db.pool.query('SELECT id FROM `option` WHERE title = ? AND pollId = ?', [optionInfo.title, optionInfo.pollId])
 
         return {
             status: 200,
@@ -61,16 +61,16 @@ const createOption = async (obj) => {
 }
 
 //obj: userId, optionId
-const vote = async(obj) => {
+const vote = async(voteInfo) => {
     try{
-        const person = await db.pool.query(`SELECT * FROM user_options WHERE userId = ? AND optionId = ?`, [obj.userId, obj.optionId])
-        if (person[0].length > 0)
+        const voted = await db.pool.query(`SELECT * FROM user_options WHERE userId = ? AND optionId = ?`, [voteInfo.userId, voteInfo.optionId])
+        if (voted[0].length > 0)
             return {
                 status: 400,
                 message: "You have voted for this option!"
             }
         else{
-            db.pool.query(`INSERT INTO user_options(userId, optionId) VALUES (?, ?)`, [obj.userId, obj.optionId])
+            db.pool.query(`INSERT INTO user_options(userId, optionId) VALUES (?, ?)`, [voteInfo.userId, voteInfo.optionId])
             return {
                 status: 200,
                 message: "Vote success!"
@@ -85,9 +85,9 @@ const vote = async(obj) => {
     }
 }
 
-const unVote = async(obj) => {
+const unVote = async(unVoteInfo) => {
     try{
-        await db.pool.query(`DELETE FROM user_options WHERE userId = ? AND optionId = ?`, [obj.userId, obj.optionId])
+        await db.pool.query(`DELETE FROM user_options WHERE userId = ? AND optionId = ?`, [unVoteInfo.userId, unVoteInfo.optionId])
         return {
             status: 200,
             message: "Unvote success!"
@@ -106,7 +106,7 @@ const getVote = async(id) => {
         const poll = await db.pool.query('SELECT * FROM polls WHERE id = ?', [id])
         const person = await db.pool.query(`SELECT username FROM users WHERE id = ?`, [poll[0][0].userId])
         const getData = await db.pool.query('SELECT o.title, o.createAt, COUNT(s.optionId) AS count FROM `option` o LEFT JOIN user_options s ON o.id = s.optionId WHERE o.pollId = ? GROUP BY o.id', [id])
-        let ans = {
+        let pollInfo = {
             title: poll[0][0].title,
             createAt: poll[0][0].createAt,
             createdBy: person[0][0].username,
@@ -120,7 +120,7 @@ const getVote = async(id) => {
         return {
             status: 200,
             message: "Get vote success!",
-            ans
+            pollInfo
         }
     }
     catch(err){
@@ -131,12 +131,12 @@ const getVote = async(id) => {
     }
 }
 
-const isLock = async(obj) => {
+const lockStatus = async(lockStatusInfo) => {
     try{
-        await db.pool.query(`UPDATE polls SET isLock = ? WHERE id = ? AND userId = ?`, [obj.isLock, obj.pollId, obj.userId])
+        await db.pool.query(`UPDATE polls SET isLock = ? WHERE id = ? AND userId = ?`, [lockStatusInfo.isLock, lockStatusInfo.pollId, lockStatusInfo.userId])
         return {
             status: 200,
-            message: "Set " + obj.isLock + " for poll where pollId = " + obj.pollId + " success!" 
+            message: "Set " + lockStatusInfo.isLock + " for poll where pollId = " + lockStatusInfo.pollId + " success!" 
         }     
     }
     catch(err){
@@ -147,4 +147,4 @@ const isLock = async(obj) => {
     }
 }
 
-export default {createPoll, createOption, vote, getVote, deletePoll, unVote, isLock}
+export default {createPoll, createOption, vote, getVote, deletePoll, unVote, lockStatus}

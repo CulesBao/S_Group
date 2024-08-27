@@ -2,8 +2,8 @@ import votesService from '../services/votes.service.js';
  
 const createPoll = async (req, res) => {
     try{
-        const obj = req.body;
-        const response = await votesService.createPoll(obj)
+        const pollInfo = req.body;
+        const response = await votesService.createPoll(pollInfo)
         let {status, ...message} = response
 
         res.status(status).json(message)
@@ -34,8 +34,8 @@ const deletePoll = async(req, res) => {
 
 const createOption = async(req, res) => {
     try{
-        const obj = req.body
-        const response = await votesService.createOption(obj)
+        const optionInfo = req.body
+        const response = await votesService.createOption(optionInfo)
         let {status, ...message} = response
 
         res.status(status).json(message)
@@ -50,8 +50,9 @@ const createOption = async(req, res) => {
 
 const vote = async (req, res) => {
     try{
-        const obj = req.body
-        const response = await votesService.vote(obj)
+        const voteInfo = req.body
+        console.log(voteInfo)
+        const response = await votesService.vote(voteInfo)
         let {status, ...message} = response
 
         res.status(status).json(message)
@@ -66,8 +67,8 @@ const vote = async (req, res) => {
 
 const unVote = async(req, res) => {
     try{
-        const obj = req.body
-        const response = await votesService.unVote(obj)
+        const unVoteInfo = req.body
+        const response = await votesService.unVote(unVoteInfo)
         let {status, ...message} = response
 
         res.status(status).json(message)
@@ -96,13 +97,13 @@ const getVote = async(req, res) => {
     }
 }
 
-const isLock = async(req, res) => {
+const lockStatus = async(req, res) => {
     try{
-        let obj = req.body
-        const response = await votesService.isLock(obj)
-        let {status, ...message} = response
+        let lockStatusInfo = req.body
+        const response = await votesService.lockStatus(lockStatusInfo)
+        let {status, ...data} = response
 
-        res.status(status).json(message)
+        res.status(status).json(data)
     }
     catch(err){
         return {
@@ -112,4 +113,4 @@ const isLock = async(req, res) => {
     }
 }
 
-export default {createPoll, createOption, vote, getVote, deletePoll, unVote, isLock}
+export default {createPoll, createOption, vote, getVote, deletePoll, unVote, lockStatus}

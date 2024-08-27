@@ -10,6 +10,6 @@ router.post('/create-option', votesMiddleware.createOption, votesController.crea
 router.post('/vote',votesMiddleware.vote, votesController.vote)
 router.delete('/unvote', votesMiddleware.unVote, votesController.unVote)
 router.get('/get-votes/:id', votesMiddleware.getVote, votesController.getVote)
-router.put('/isLock', votesMiddleware.isLock, votesController.isLock)
+router.put('/lock-status', votesMiddleware.lockStatus, votesController.lockStatus)
 
 export default router

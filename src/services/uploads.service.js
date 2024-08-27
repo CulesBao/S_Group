@@ -17,8 +17,8 @@ const decodeToken = async (token) => {
             });
         });
         console.log(decoded)
-        const [userRows] = await database.pool.query(`SELECT * FROM users WHERE id = ?`, [decoded.id]);
-        if (userRows.length == 0)
+        const [findOne] = await database.pool.query(`SELECT * FROM users WHERE id = ?`, [decoded.id]);
+        if (findOne.length == 0)
             return {
                 status: 404,
                 message: 'User not found'
@@ -26,7 +26,7 @@ const decodeToken = async (token) => {
         return {
             status: 200,
             message: 'Token is valid',
-            username: userRows[0].username
+            username: findOne[0].username
         }
     }
     catch(err){

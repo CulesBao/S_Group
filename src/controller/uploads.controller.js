@@ -4,10 +4,9 @@ const decodeToken = async(req, res) => {
     try{
         const authorizationHeader = req.headers['authorization']
         const token = authorizationHeader && authorizationHeader.split(' ')[1]
-
         let response = await uploadsService.decodeToken(token)
-        console.log(response)
         let {status, ...data} = response
+        
         return res.status(status).json(data)
     }
     catch(err){

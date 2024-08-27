@@ -10,13 +10,17 @@ function validatePassword(password) {
 }
 
 function randomNum(length) {
-    var result = '';
-    var characters = '0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
+    let result = '';
+    let characters = '0123456789';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
 }
 
-export default {validateName, validatePassword, randomNum}
+function whiteSpace(str) {
+    return str.replace(/\s/g, '');
+}
+
+export default {validateName, validatePassword, randomNum, whiteSpace}

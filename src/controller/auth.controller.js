@@ -2,10 +2,11 @@ import authService from '../services/auth.service.js'
 
 const register = async (req, res) => {
     try{
-        let user = req.body
-        let response = await authService.register(user)
-        let {status, ...message} = response
-        return res.status (status).json(message)
+        const registerInfo = req.body
+        const response = await authService.register(registerInfo)
+        let {status, ...data} = response
+
+        return res.status (status).json(data)
     }
     catch(err){
         console.log('Loi o controller', err)
@@ -17,10 +18,11 @@ const register = async (req, res) => {
 
 const login = async(req, res) => {
     try{
-        let user = req.body
-        let response = await authService.login(user)
-        let {status, ...message} = response
-        return res.status(status).json(message)
+        const loginInfo = req.body
+        const response = await authService.login(loginInfo)
+        let {status, ...data} = response
+
+        return res.status(status).json(data)
     }
     catch(err){
         console.log('Loi o controller', err)
@@ -30,12 +32,13 @@ const login = async(req, res) => {
     }
 }
 
-const forgotPassword = async(req, res) => {
+const sendOTP = async(req, res) => {
     try{
-        let email = req.body.email
-        let response = await authService.forgotPassword(email)
-        let {status, ...message} = response
-        return res.status(status).json(message)
+        let objInfo = req.body
+        let response = await authService.sendOTP(objInfo)
+        let {status, ...data} = response
+
+        return res.status(status).json(data)
     }
     catch(err){
         console.log('Loi o controller', err)
@@ -47,10 +50,10 @@ const forgotPassword = async(req, res) => {
 
 const resetPassword = async(req, res) => {
     try{
-        let email = req.body.email
-        let password = req.body.password
-        let response = await authService.resetPassword(email, password)
+        const objInfo = req.body
+        const response = await authService.resetPassword(objInfo)
         let {status, ...message} = response
+
         return res.status(status).json(message)
     }
     catch(err){
@@ -61,4 +64,4 @@ const resetPassword = async(req, res) => {
     } 
 }
 
-export default {register, login, forgotPassword, resetPassword}
+export default {register, login, sendOTP, resetPassword}
