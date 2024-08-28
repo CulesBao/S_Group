@@ -1,6 +1,5 @@
-import votesUtils from '../utils/votes.utils.js'
+import pollService from '../services/poll.service.js'
 import regexUtils from '../utils/regex.utils.js';
-import database from '../config/db.js'
 
 const createPoll = async (req, res, next) => {
     try{
@@ -16,7 +15,7 @@ const createPoll = async (req, res, next) => {
                 message: 'Lock must be a boolean'
             });
         }
-        if (! await votesUtils.isValidId(pollInfo.userId))
+        if (! await pollService.isValidId(pollInfo.userId))
             return res.status(400).send({
                 message: 'UserId is not valid'
             })
@@ -33,12 +32,12 @@ const createPoll = async (req, res, next) => {
 const deletePoll = async(req, res, next) => {
     try{
         let pollId = req.params.id
-        if (!await votesUtils.lockStatus(pollId))
+        if (!await pollService.lockStatus(pollId))
             return res.status(400).json({
                 message: "Poll is locked!"
             })
 
-        if (!await votesUtils.isValidPollId(pollId))
+        if (!await pollService.isValidPollId(pollId))
             return res.status(400).json({
                 message: "PollId is not valid"
             })
@@ -56,11 +55,11 @@ const createOption = async(req, res, next) => {
     try{
         const optionInfo = req.body
 
-        if (!await votesUtils.isValidPollId(optionInfo.pollId))
+        if (!await pollService.isValidPollId(optionInfo.pollId))
             return res.status(400).json({
                 message: "PollId is not valid"
             })
-        if (!await votesUtils.lockStatus(optionInfo.pollId))
+        if (!await pollService.lockStatus(optionInfo.pollId))
             return res.status(400).json({
                 message: "Poll is locked!"
             })  
@@ -82,20 +81,20 @@ const vote = async(req, res, next) => {
     try{
         let voteInfo = req.body
 
-        let [pollId] = await database.pool.query('SELECT pollId FROM `option` WHERE id = ?', [voteInfo.optionId])
+        let [pollId] = await pollService.pollId(voteInfo.optionId)
         if (!pollId[0])
             return res.status(400).json({
                 message: "OptionId is not valid"
             })
-        if (!await votesUtils.lockStatus(pollId[0].pollId))
+        if (!await pollService.lockStatus(pollId[0].pollId))
             return res.status(400).json({
                 message: "Poll is locked!"
             })
-        if (! await votesUtils.isValidId(voteInfo.userId))
+        if (! await pollService.isValidId(voteInfo.userId))
             return res.status(400).json({
                 message: "UserId is not valid"
             })
-        if (! await votesUtils.isValidOptionId(voteInfo.optionId))
+        if (! await pollService.isValidOptionId(voteInfo.optionId))
             return res.status(400).json({
                 message: "OptionId is not valid"
             })
@@ -112,17 +111,17 @@ const vote = async(req, res, next) => {
 const unVote = async(req, res, next) =>{
     try{
         const unVoteInfo = req.body
-        let [pollId] = await database.pool.query('SELECT pollId FROM `option` WHERE id = ?', [unVoteInfo.optionId])
+        let [pollId] = await pollService.pollId(unVoteInfo.optionId)
         if (!pollId[0])
             return res.status(400).json({
                 message: "OptionId is not valid"
             })
-        if (!await votesUtils.lockStatus(pollId[0].pollId))
+        if (!await pollService.lockStatus(pollId[0].pollId))
             return res.status(400).json({
                 message: "Poll is locked!"
             })  
 
-        let [voted] = await database.pool.query(`SELECT * FROM user_options WHERE userId = ? AND optionId = ?`, [unVoteInfo.userId, unVoteInfo.optionId])
+        let [voted] = await pollService.voted(unVoteInfo.userId, unVoteInfo.optionId)
         if (voted.length == 0){
             return res.status(400).json({
                 message: "UserId is not valid"
@@ -141,7 +140,7 @@ const unVote = async(req, res, next) =>{
 const getVote = async(req, res, next) => {
     try{
         let pollId = req.params.id
-        if (!await votesUtils.isValidPollId(pollId))
+        if (!await pollService.isValidPollId(pollId))
             return res.status(400).json({
                 message: "PollId is not valid"
             })
@@ -158,7 +157,7 @@ const getVote = async(req, res, next) => {
 const lockStatus = async(req, res, next) => {
     try{
         let lockStatusInfo = req.body
-        let [poll] = await database.pool.query(`SELECT * FROM polls WHERE userId = ? AND id = ?`, [lockStatusInfo.userId, lockStatusInfo.pollId]);
+        let [poll] = await pollService.poll(lockStatusInfo.userId, lockStatusInfo.pollId)
         if (poll[0] == undefined)
             return res.status(400).json({
                 message: "Wrong userId or pollId"

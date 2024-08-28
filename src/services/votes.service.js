@@ -104,7 +104,7 @@ const unVote = async(unVoteInfo) => {
 const getVote = async(id) => {
     try{
         const [poll] = await db.pool.query('SELECT * FROM polls WHERE id = ?', [id])
-        const [person] = await db.pool.query(`SELECT username FROM users WHERE id = ?`, [poll[0][0].userId])
+        const [person] = await db.pool.query(`SELECT username FROM users WHERE id = ?`, [poll[0].userId])
         const [getData] = await db.pool.query('SELECT o.title, o.createAt, COUNT(s.optionId) AS count FROM `option` o LEFT JOIN user_options s ON o.id = s.optionId WHERE o.pollId = ? GROUP BY o.id', [id])
         let pollInfo = {
             title: poll[0].title,
